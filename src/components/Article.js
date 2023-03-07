@@ -1,21 +1,21 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectArticles } from '../features/articles/articlesSlice';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import { Parser } from 'html-to-react'
+export default function Article (props) {
+  console.log(props)
 
-export default function Article () {
-  const articles = useSelector(selectArticles)
-  const { title } = useParams()
-  const article = articles[title]
+  const {article} = props
 
-  return article ? (
+  return (
     <div className='article-container'>
       <h1 className='article-title'>{article.title}</h1>
-      <p>By <Link to={`/authors/${article.author}`}>{article.author}</Link></p>
-      <ReactMarkdown>
-        {article.body}
-      </ReactMarkdown>
+
+      <div>
+        {Parser().parse(article.content)}
+
+      </div>
     </div>
-  ) : <p> No article found with that title... </p>
+  )
 }

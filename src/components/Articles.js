@@ -1,35 +1,67 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { selectArticles, filterArticles } from "../features/articles/articlesSlice";
+import React, { useState, useEffect} from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import {
+
+  loadCurrentArticle, selectCurrentArticle
+} from '../features/currentArticle/currentArticleSlice';
+import Article from './Article';
+import { selectArticles, loadArticles, isLoadingArticles } from "../features/articles/articlesSlice";
 import Search from "./Search";
-import { Link } from 'react-router-dom';
 
 // Import Link and useSearchParams from React Router
+// const loadArticles = async () => {
+//     const response = await axios(`https://myclassr00m.herokuapp.com/api/articles`);
+//
+//     return response.data;
+// }
 
 export default function Articles () {
+  const dispatch = useDispatch();
   const articles = useSelector(selectArticles);
+  const isLoading = useSelector(isLoadingArticles);
 
-  // Grab URLSearchParams object from useSearchParams hook
-  
-  // Get the queryParams from object returned from useSearchParams and set to `title`
-  const title = '';
+  const [selectedArticleId, setSelectedArticleId] = useState()
+  const selectedArticle = useSelector(selectCurrentArticle)
 
-  const filteredArticles = title ? filterArticles(title, articles) : Object.values(articles)
 
+  useEffect(() => {
+    dispatch(loadArticles());
+
+
+  }, [dispatch]);
+
+  useEffect(() => {
+    if(!selectedArticleId) return;
+    dispatch(loadCurrentArticle(selectedArticleId))
+
+
+  }, [selectedArticleId]);
+
+  if(isLoading) {
+    return (<p>Articles are loading</p>)
+  }
   return (
     <main>
-      <h1>Articles</h1>
-      <ul>
-        { filteredArticles.map(article => (
-          <li key={article.slug}>
-            {/* Replace these a tags! */}
+      {selectedArticle && (<Article article={selectedArticle} />) }
 
-            <Link to={`${article.slug}`}>
+      <h1>Articles</h1>
+
+
+      <ul>
+
+
+        { articles.length > 0 && articles.map(article => (
+
+
+            <li key={article.id} onClick={(e) => setSelectedArticleId(article.id)}>
               {article.title}
-            </Link>
-          </li>
+
+            </li>
+
         ))}
       </ul>
+
       <Search />
     </main>
   )
