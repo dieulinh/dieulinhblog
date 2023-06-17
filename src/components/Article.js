@@ -4,7 +4,6 @@ import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { Parser } from 'html-to-react'
 export default function Article (props) {
-  console.log(props)
 
   const {article} = props
 

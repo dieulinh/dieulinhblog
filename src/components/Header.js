@@ -16,11 +16,8 @@ export default function Header () {
   // Replace the 4 <a> tags with <NavLink> components
   return (
     <div className="header">
-      <NavLink to="/about">About</NavLink>
+     <NavLink to="/articles">Articles</NavLink>
 
-      <NavLink to="/articles">Articles</NavLink>
-
-      <NavLink to="/categories">Categories</NavLink>
       {
         currentUser.username
           ? <>
@@ -29,6 +26,7 @@ export default function Header () {
             </>
           : <NavLink to="/sign-up">Sign Up</NavLink>
         }
+
     </div>
   )
 }

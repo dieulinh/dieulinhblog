@@ -18,23 +18,27 @@ import Search from "./Search";
 
 export default function Articles () {
   const dispatch = useDispatch();
-  const articles = useSelector(selectArticles);
+
   const isLoading = useSelector(isLoadingArticles);
+  const articles = useSelector(selectArticles);
 
   const [selectedArticleId, setSelectedArticleId] = useState()
   const selectedArticle = useSelector(selectCurrentArticle)
-
+  const scrollUp = (event) => {
+    console.log(event)
+    window.scrollTo(0, 200)
+  }
 
   useEffect(() => {
     dispatch(loadArticles());
-
 
   }, [dispatch]);
 
   useEffect(() => {
     if(!selectedArticleId) return;
-    dispatch(loadCurrentArticle(selectedArticleId))
 
+    dispatch(loadCurrentArticle(selectedArticleId));
+    scrollUp()
 
   }, [selectedArticleId]);
 
@@ -42,27 +46,28 @@ export default function Articles () {
     return (<p>Articles are loading</p>)
   }
   return (
-    <main>
+    <div>
+
       {selectedArticle && (<Article article={selectedArticle} />) }
+      <section>
+        <h1>Articles</h1>
 
-      <h1>Articles</h1>
+        <ul className="article-list">
 
+          { articles.length > 0 && articles.map(article => (
 
-      <ul>
-
-
-        { articles.length > 0 && articles.map(article => (
-
-
-            <li key={article.id} onClick={(e) => setSelectedArticleId(article.id)}>
+            <li key={article.id} onClick={(e) => {setSelectedArticleId(article.id);}}>
               {article.title}
 
             </li>
 
-        ))}
-      </ul>
+          ))}
+        </ul>
+        <button onClick={scrollUp}>Scroll to Top</button>
+        <Search />
 
-      <Search />
-    </main>
+      </section>
+
+    </div>
   )
 }
