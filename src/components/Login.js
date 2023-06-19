@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 
 import { loginUser } from "../features/auth/authSlice";
 import {selectIsLoggedIn, selectCurrentUser, isLoggedInHasError,isLoading } from "../features/auth/authSlice";
-
+import {UserContext} from "../context/UserContext";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 
@@ -13,6 +13,7 @@ export default function Login () {
   const user = useSelector(selectCurrentUser);
   const authIsLoading = useSelector(isLoading)
   const hasError = useSelector(isLoggedInHasError)
+  const { currentUser, setCurrentUser } = useContext(UserContext);
 
   // Grab the navigate function
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ export default function Login () {
     }
 
     if(user.token) {
+      setCurrentUser(user)
       navigate('/articles')
     }
   }, [user])
