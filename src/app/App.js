@@ -2,6 +2,8 @@ import React from "react";
 import About from "../components/About";
 import SignUp from "../components/SignUp";
 import Login from "../components/Login";
+import Mentors from "../components/Mentors";
+import Mentor from "../components/Mentor";
 import Articles from "../components/Articles";
 
 import Categories from "../components/Categories";
@@ -12,26 +14,29 @@ import EditProfileForm from "../components/EditProfileForm";
 import Root from "../components/Root";
 
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
-import {CurrentUser} from '../context/UserContext';
+import { CurrentUser } from '../context/UserContext';
 
 import "./App.css";
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path='/' element={ <Root/> }>
-    <Route  path='/about' element={<About />}/>
-    <Route  path='/categories' element={<Categories />}>
-      <Route  path=':name' element={<Category />}/>
+  <Route path='/' element={<Root />}>
+    <Route path='/about' element={<About />} />
+    <Route path='/authors/:name' element={<Author />} />
+    <Route path='/articles' element={<Articles />} />
+    <Route path='/articles/:articleId' element={<Articles />} />
+    <Route path='/categories' element={<Categories />}>
+      <Route path=':name' element={<Category />} />
     </Route>
-    <Route  path='/articles' element={<Articles />}/>
-    <Route  path='/articles/:articleId' element={<Articles />}/>
-    <Route  path='/sign-up' element={<SignUp />}/>
-    <Route  path='/login' element={<Login />}/>
-    <Route  path='/authors/:name' element={<Author />}/>
-    <Route  path='/profile' element={<Profile />}>
+    <Route path='/login' element={<Login />} />
+    <Route path='/mentors' element={<Mentors />} />
+    <Route path='/mentors/:mentorId' element={<Mentors />} />
+
+    <Route path='/profile' element={<Profile />}>
       <Route path="edit" element={<EditProfileForm />}>
 
       </Route>
     </Route>
+    <Route path='/sign-up' element={<SignUp />} />
   </Route>)
 );
 

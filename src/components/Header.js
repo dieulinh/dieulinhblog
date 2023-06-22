@@ -17,6 +17,7 @@ export default function Header () {
   return (
     <div className="header">
      <NavLink to="/articles">Articles</NavLink>
+     <NavLink to="/mentors">Mentors</NavLink>
 
       {
         currentUser.username
