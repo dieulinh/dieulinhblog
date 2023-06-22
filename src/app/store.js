@@ -4,6 +4,8 @@ import currentArticleReducer from '../features/currentArticle/currentArticleSlic
 import sessionReducer from '../features/session/sessionSlice';
 import authorsReducer from '../features/authors/authorsSlice';
 import authReducer from '../features/auth/authSlice';
+import mentorReducer from '../features/mentors/mentorsSlice';
+import signupReducer from '../features/auth/signupSlice';
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +13,8 @@ export const store = configureStore({
     session: sessionReducer,
     authors: authorsReducer,
     auth: authReducer,
-    currentArticle: currentArticleReducer
+    mentors: mentorReducer,
+    currentArticle: currentArticleReducer,
+    registerReducer: signupReducer
   },
 });
