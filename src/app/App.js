@@ -3,7 +3,6 @@ import About from "../components/About";
 import SignUp from "../components/SignUp";
 import Login from "../components/Login";
 import Mentors from "../components/Mentors";
-import Mentor from "../components/Mentor";
 import Articles from "../components/Articles";
 
 import Categories from "../components/Categories";
