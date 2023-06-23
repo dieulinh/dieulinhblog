@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+
+const  BASE_URL = process.env.REACT_APP_DEFAULT_API_URL;
 export const loadMentor = createAsyncThunk(
   'mentors/mentor/load',
   async (mentorId) => {
-    const data = await axios(`https://myclassr00m.herokuapp.com/api/mentors/${mentorId}`);
-
+    const data = await axios(`${BASE_URL}/api/mentors/${mentorId}`);
     return data;
   }
 );
@@ -14,7 +15,7 @@ export const mentorSlice = createSlice({
   initialState: {
     mentor: null,
     isLoadingCurrentMentor: false,
-    hasError: false
+    hasError: false,
   },
   extraReducers: (builder) => {
     builder
@@ -36,4 +37,6 @@ export const mentorSlice = createSlice({
 });
 export const selectCurrentMentor = (state) => state.mentors.mentor.mentor;
 export const isLoadingCurrentMentor = (state) => state.mentors.mentor.isLoadingCurrentMentor;
+export const hasError = (state) => state.mentors.mentor.hasError;
+
 export default mentorSlice.reducer;

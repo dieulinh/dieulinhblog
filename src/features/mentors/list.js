@@ -2,10 +2,11 @@
 import axios from 'axios';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
+const  BASE_URL = process.env.REACT_APP_DEFAULT_API_URL;
 export const loadMentors = createAsyncThunk(
   'mentors/list/load',
   async () => {
-    const data = await axios(`https://myclassr00m.herokuapp.com/api/mentors`);
+    const data = await axios(`${BASE_URL}/api/mentors`);
     return data
   }
 );

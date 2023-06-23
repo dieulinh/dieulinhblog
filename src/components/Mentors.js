@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import {  loadMentor, selectCurrentMentor } from '../features/mentors/mentor';
+import { hasError, loadMentor, selectCurrentMentor } from '../features/mentors/mentor';
 import Mentor from './Mentor';
 import { selectMentors, loadMentors, isLoadingMentors } from "../features/mentors/list";
 import Search from "./Search";
@@ -14,7 +14,7 @@ export default function Mentors() {
   const mentors = useSelector(selectMentors);
 
   const selectedMentorId = useParams().mentorId
-  const selectedMentor = useSelector(selectCurrentMentor)
+  const error = useSelector(hasError)
 
   const scrollUp = (event) => {
     console.log(event)
@@ -38,8 +38,7 @@ export default function Mentors() {
   }
   return (
     <div>
-
-      {selectedMentor && (<Mentor mentor={selectedMentor} />)}
+      {selectedMentorId && (<Mentor />)}
       <section>
         <h1>Mentors</h1>
         {JSON.stringify()}
