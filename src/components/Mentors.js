@@ -42,16 +42,18 @@ export default function Mentors() {
       {selectedMentor && (<Mentor mentor={selectedMentor} />)}
       <section>
         <h1>Mentors</h1>
-
+        {JSON.stringify()}
         <ul className="mentor-list">
 
           {mentors.length > 0 && mentors.map(mentor => (
 
-            <Link to={`/mentors/${mentor.id}`}>
-              <li key={mentor.id}>
-                {mentor.title}
+            <li key={mentor.id}>
+                <Link to={`/mentors/${mentor.id}`}>
+                  <span>{mentor.first_name} {mentor.last_name}</span>
+                </Link>
+                <span>Specialization: {mentor.specialization || "n/a"} </span>
+                <span>Experience Years: {mentor.experience_years}</span>
               </li>
-            </Link>
           ))}
         </ul>
         <button onClick={scrollUp}>Scroll to Top</button>
