@@ -1,9 +1,9 @@
 import axios from 'axios';
-
+const BASE_URL= process.env.REACT_APP_DEFAULT_API_URL || 'https://myclassr00m.herokuapp.com'
 // Create an instance of Axios
 const instance = axios.create({
-    baseURL: 'https://myclassr00m.herokuapp.com', // Replace with your API's base URL
-    headers: { 'Content-Type': 'application/json' }
+    baseURL: BASE_URL, // Replace with your API's base URL
+    headers: { 'content-type': 'application/json' }
 });
 
 // Add a request interceptor
