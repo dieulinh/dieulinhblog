@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { signUp } from "../features/session/sessionSlice"
+import { registerUser } from "../features/auth/signupSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 
 export default function SignUp () {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  // const [email, setEmail] = useState("");
   const dispatch = useDispatch();
 
    // Grab the navigate function
@@ -12,7 +15,7 @@ export default function SignUp () {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(signUp({username: username}));
+    dispatch(registerUser({email, password, password_confirmation: passwordConfirmation }));
     navigate('/profile')
   }
 
@@ -25,14 +28,38 @@ export default function SignUp () {
           <div>
             <input
               id="username"
-              value={username}
-              onChange={(e) => setUsername(e.currentTarget.value)}
+              value={email}
+              onChange={(e) => setEmail(e.currentTarget.value)}
             />
-            <button type="submit" className="primary">
-              Sign Up
-            </button>
           </div>
         </label>
+        <label>
+            Password
+
+          <div>
+            <input
+              id="password"
+              value={password}
+              type="password"
+              onChange={(e) => setPassword(e.currentTarget.value)}
+            />
+          </div>
+        </label>
+        <label>
+
+        Password confirmation
+        <div>
+            <input
+              id="password"
+              value={passwordConfirmation}
+              type="password"
+              onChange={(e) => setPasswordConfirmation(e.currentTarget.value)}
+            />
+        </div>
+        </label>
+        <button type="submit" className="primary">
+          Sign Up
+        </button>
       </form>
     </section>
   );

@@ -1,8 +1,32 @@
 import React from 'react';
-import { Parser } from 'html-to-react'
+import { useSelector } from 'react-redux';
+import { hasError, selectCurrentMentor } from '../features/mentors/mentor.js';
 
-export default function Mentor (props) {
-  const {mentor} = props
+export default function Mentor () {
+  const mentor = useSelector(selectCurrentMentor)
+  const error = useSelector(hasError)
+  if (error) {
+    return <div>
+      Error loading mentor.
+    </div>
+  }
+  if (!mentor) {
+    return
+  }
+
+  const {
+    id,
+    first_name,
+    last_name,
+    email,
+    phone,
+    address,
+    specialization,
+    experience_years,
+    bio,
+    created_at,
+    updated_at,
+  } = mentor
 
   return (
     <div className='mentor-container'>

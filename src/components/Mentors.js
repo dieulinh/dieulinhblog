@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import {  loadMentor, selectCurrentMentor } from '../features/mentors/mentor';
+import { hasError, loadMentor, selectCurrentMentor } from '../features/mentors/mentor';
+
 import Mentor from './Mentor';
 import { selectMentors, loadMentors, isLoadingMentors } from "../features/mentors/list";
 import Search from "./Search";
@@ -14,7 +15,7 @@ export default function Mentors() {
   const mentors = useSelector(selectMentors);
 
   const selectedMentorId = useParams().mentorId
-  const selectedMentor = useSelector(selectCurrentMentor)
+  const error = useSelector(hasError)
 
   const scrollUp = (event) => {
     console.log(event)
@@ -38,20 +39,21 @@ export default function Mentors() {
   }
   return (
     <div>
-
-      {selectedMentor && (<Mentor mentor={selectedMentor} />)}
+      {selectedMentorId && (<Mentor />)}
       <section>
         <h1>Mentors</h1>
-
+        {JSON.stringify()}
         <ul className="mentor-list">
 
           {mentors.length > 0 && mentors.map(mentor => (
 
-            <Link to={`/mentors/${mentor.id}`}>
-              <li key={mentor.id}>
-                {mentor.title}
+            <li key={mentor.id}>
+                <Link to={`/mentors/${mentor.id}`}>
+                  <span>{mentor.first_name} {mentor.last_name}</span>
+                </Link>
+                <span>Specialization: {mentor.specialization || "n/a"} </span>
+                <span>Experience Years: {mentor.experience_years}</span>
               </li>
-            </Link>
           ))}
         </ul>
         <button onClick={scrollUp}>Scroll to Top</button>
