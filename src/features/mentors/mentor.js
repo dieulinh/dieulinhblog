@@ -6,7 +6,7 @@ export const loadMentor = createAsyncThunk(
   'mentors/mentor/load',
   async (mentorId) => {
     const data = await axios(`${BASE_URL}/api/mentors/${mentorId}`);
-    return data;
+    return data.data;
   }
 );
 
@@ -24,7 +24,7 @@ export const mentorSlice = createSlice({
         state.hasError = false;
       })
       .addCase(loadMentor.fulfilled, (state, action) => {
-        state.mentor = action.payload.data;
+        state.mentor = action.payload.mentor;
         state.hasError = false;
         state.isLoadingCurrentMentor = false
       })
