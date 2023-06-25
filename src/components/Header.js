@@ -16,9 +16,6 @@ export default function Header () {
   // Replace the 4 <a> tags with <NavLink> components
   return (
     <div className="header">
-      <div>
-
-      </div>
       <img src="logo192.png" height={70} alt="" />
      <NavLink to="/articles">Articles</NavLink>
      <NavLink to="/mentors">Mentors</NavLink>
