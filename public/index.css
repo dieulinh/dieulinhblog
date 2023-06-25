@@ -49,11 +49,6 @@ main {
 
   /*overflow-y: auto;*/
 }
-.article-list li {
-
-    color: #2947e5;
-
-}
 
 #root {
   display: grid;

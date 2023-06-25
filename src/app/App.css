@@ -52,6 +52,10 @@ button {
   justify-content: center;
   font-size: calc(10px + 2vmin);
 }
+.header img {
+  height: 40px;
+  mask: radial-gradient(ellipse farthest-corner at 50% 50%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) );
+}
 
 .App-link {
   color: #333;
@@ -74,7 +78,7 @@ a:link {
 }
 
 a:hover {
-  font-weight: bold;
+  /* font-weight: bold; */
   color: #abd373;
 }
 

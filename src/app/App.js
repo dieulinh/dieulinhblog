@@ -16,9 +16,11 @@ import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } 
 import { CurrentUser } from '../context/UserContext';
 
 import "./App.css";
+import Landing from "../components/Landing";
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Root />}>
+    <Route path='/' element={<Landing />} />
     <Route path='/about' element={<About />} />
     <Route path='/authors/:name' element={<Author />} />
     <Route path='/articles' element={<Articles />} />
