@@ -16,6 +16,20 @@ You will also see any lint errors in the console.
 
 It makes a build directory.
 
+
+### docker build
+
+```
+# saves the yarn.lock
+# also yarn is faster in docker
+yarn install 
+
+docker build -t dieulinhblog:0.1 .
+
+# run on port 3000 to avoid cors errors
+docker run -p 3000:80 -it dieulinhblog:0.1
+```
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
