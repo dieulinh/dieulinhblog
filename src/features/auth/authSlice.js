@@ -1,9 +1,9 @@
-import axios from 'axios';
+import axios from '../../utils/axiosConfig';
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 
 export const loginUser = createAsyncThunk('auth/loginUser',
   async ({email,password}, thunkAPI) => {
-    const data = await axios.post(`https://myclassr00m.herokuapp.com/api/login`,{email, password});
+    const data = await axios.post(`/api/login`,{email, password});
     return data;
   }
 )

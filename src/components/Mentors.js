@@ -17,11 +17,6 @@ export default function Mentors() {
   const selectedMentorId = useParams().mentorId
   const error = useSelector(hasError)
 
-  const scrollUp = (event) => {
-    console.log(event)
-    window.scrollTo(0, 0)
-  }
-
   useEffect(() => {
     dispatch(loadMentors());
   }, [dispatch]);
@@ -29,7 +24,6 @@ export default function Mentors() {
   useEffect(() => {
     if (!selectedMentorId) return;
 
-    scrollUp()
     dispatch(loadMentor(selectedMentorId));
 
   }, [selectedMentorId]);
@@ -56,7 +50,6 @@ export default function Mentors() {
               </li>
           ))}
         </ul>
-        <button onClick={scrollUp}>Scroll to Top</button>
         <Search />
 
       </section>

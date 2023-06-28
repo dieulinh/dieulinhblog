@@ -1,24 +1,10 @@
-
-// import { ARTICLES } from '../../app/data';
-
-// export const articlesSlice = createSlice({
-//   name: 'articles',
-//   initialState: {
-//     articles: ARTICLES,
-//   },
-//   reducers: {}
-// });
-
-
-
-
-import axios from 'axios';
+import axios from '../../utils/axiosConfig';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const loadArticles = createAsyncThunk(
   'articles/loadArticles',
   async () => {
-    const data = await axios(`https://myclassr00m.herokuapp.com/api/articles`);
+    const data = await axios(`/api/articles`);
 
     return data
 

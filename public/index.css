@@ -28,13 +28,17 @@ a {
   flex-wrap: wrap;
   column-gap: 34px;
   align-items: center;
+  justify-content: space-between;
 }
-
+.right-nav-bar,left-nav-bar {
+  display: flex;
+}
 main,
 .header,
 footer {
   padding: 37px 60px;
 }
+
 
 main,
 footer {

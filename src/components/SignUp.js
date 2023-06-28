@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { registerUser } from "../features/auth/signupSlice";
 import { useDispatch } from "react-redux";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function SignUp () {
   const [email, setEmail] = useState("");
@@ -60,6 +60,7 @@ export default function SignUp () {
         <button type="submit" className="primary">
           Sign Up
         </button>
+        <Link to={'/login'}>Login</Link>
       </form>
     </section>
   );

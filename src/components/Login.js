@@ -4,7 +4,7 @@ import { loginUser } from "../features/auth/authSlice";
 import {selectIsLoggedIn, selectCurrentUser, isLoggedInHasError,isLoading } from "../features/auth/authSlice";
 import {UserContext} from "../context/UserContext";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 export default function Login () {
   const [email, setEmail] = useState("");
@@ -25,7 +25,7 @@ export default function Login () {
 
     if(user.token) {
       setCurrentUser(user)
-      navigate('/articles')
+      navigate('/profile')
     }
   }, [user])
   const handleSubmit = (e) => {
@@ -62,6 +62,7 @@ export default function Login () {
         <button type="submit" className="primary" onClick={handleSubmit}>
           Log In
         </button>
+        <Link to={'/sign-up'}>Sign Up</Link>
       </form>
     </section>
   );
