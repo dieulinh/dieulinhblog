@@ -6,6 +6,7 @@ import sessionReducer from '../features/session/sessionSlice';
 import authorsReducer from '../features/authors/authorsSlice';
 import authReducer from '../features/auth/authSlice';
 import signupReducer from '../features/auth/signupSlice';
+import editMentorReducer from '../features/currentMentor/editMentorSlice';
 
 export const store = configureStore({
   reducer: {
@@ -15,6 +16,7 @@ export const store = configureStore({
     authors: authorsReducer,
     auth: authReducer,
     currentArticle: currentArticleReducer,
-    registerReducer: signupReducer
+    registerReducer: signupReducer,
+    editMentor: editMentorReducer
   },
 });

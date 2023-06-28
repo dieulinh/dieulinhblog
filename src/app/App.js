@@ -10,6 +10,7 @@ import Category from "../components/Category";
 import Author from "../components/Author";
 import Profile from "../components/Profile";
 import EditProfileForm from "../components/EditProfileForm";
+import EditMentorForm from "../components/EditMentorForm";
 import Root from "../components/Root";
 
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
@@ -31,6 +32,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/login' element={<Login />} />
     <Route path='/mentors' element={<Mentors />} />
     <Route path='/mentors/:mentorId' element={<Mentors />} />
+    <Route path='/mentors/:mentorId/edit' element={<EditMentorForm />} />
 
     <Route path='/profile' element={<Profile />}>
       <Route path="edit" element={<EditProfileForm />}>
