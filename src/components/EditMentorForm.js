@@ -12,11 +12,31 @@ export default function EditMentorForm() {
   const selectedMentorId = useParams().mentorId;
   useEffect(() => {
     dispatch(loadMentor(selectedMentorId));
-    if (mentor) {
-      setFirstName(mentor.firstName);
-      setLastName(mentor.lastName)
-    }
   }, [dispatch])
+  useEffect(() => {
+    if (!mentor) {
+      return;
+    }
+
+      const {
+        id,
+        firstName,
+        lastName,
+        email,
+        phone,
+        address,
+        specialization,
+        experienceYears,
+        bio,
+        country,
+        skills,
+        createdAt,
+        updatedAt,
+      } = mentor
+      setFirstName(firstName);
+      setLastName(lastName)
+
+  }, [mentor])
   if (error) {
     return <div>
       Error loading mentor.
@@ -25,19 +45,7 @@ export default function EditMentorForm() {
   if (!mentor) {
     return
   }
-  // const {
-  //   id,
-  //   firstName,
-  //   lastName,
-  //   email,
-  //   phone,
-  //   address,
-  //   specialization,
-  //   experienceYears,
-  //   bio,
-  //   createdAt,
-  //   updatedAt,
-  // } = mentor
+
 
   return (
     <div className='mentor-container'>
