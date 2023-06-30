@@ -9,6 +9,7 @@ import Search from "./Search";
 import { Link, useParams, useLocation } from "react-router-dom";
 
 import './Mentors.css'
+import Loader from "./Loader";
 
 export default function Mentors() {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ export default function Mentors() {
   }, [selectedMentorId]);
 
   if (isLoading) {
-    return (<p>Mentors are loading</p>)
+    return (<Loader />)
   }
   return (
     <div>
