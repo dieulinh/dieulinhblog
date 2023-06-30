@@ -5,7 +5,8 @@ export const loadMentors = createAsyncThunk(
   'mentors/list/load',
   async (query) => {
     const page = query.get('page') || 1
-    const data = await axios.get(`/api/mentors?page=${page}`);
+    const q = query.get('q') || ''
+    const data = await axios.get(`/api/mentors?page=${page}&q=${encodeURIComponent(q)}`);
     return data
   }
 );
@@ -38,6 +39,7 @@ export const mentorsSlice = createSlice({
 });
 export const selectMentors = (state) => state.mentors.list.mentors;
 export const isLoadingMentors = (state) => state.mentors.list.isLoadingMentors;
+export const hasError = (state) => state.mentors.list.hasError;
 
 export const filterMentors = (query, mentors) => Object.values(mentors).filter(mentor => mentor.title.toLowerCase().includes(query.toLowerCase()))
 export default mentorsSlice.reducer;

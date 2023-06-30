@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { hasError, loadMentor, selectCurrentMentor } from '../features/mentors/mentor';
+import { hasError, selectMentors, loadMentors, isLoadingMentors } from "../features/mentors/list";
+import { Link, useLocation } from "react-router-dom";
 
-import Mentor from './MentorProfile';
-import { selectMentors, loadMentors, isLoadingMentors } from "../features/mentors/list";
-import Search from "./Search";
-import { Link, useParams, useLocation } from "react-router-dom";
-
-import './Mentors.css'
 import Loader from "./Loader";
+import './Mentors.css';
+import MentorSearchForm from "./MentorSearch";
+
+
 
 export default function Mentors() {
   const dispatch = useDispatch();
+
+  // use search reducer
+  
 
   const isLoading = useSelector(isLoadingMentors);
   const mentors = useSelector(selectMentors);
@@ -32,7 +34,7 @@ export default function Mentors() {
   return (
     <div>
       <h1>Mentors</h1>
-      <Search />
+        <MentorSearchForm />
       <div className="mentors">
         <ul className="mentors-list">
           {mentors.map(mentor => (
