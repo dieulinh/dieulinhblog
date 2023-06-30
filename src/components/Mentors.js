@@ -6,7 +6,7 @@ import { hasError, loadMentor, selectCurrentMentor } from '../features/mentors/m
 import Mentor from './MentorProfile';
 import { selectMentors, loadMentors, isLoadingMentors } from "../features/mentors/list";
 import Search from "./Search";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 
 export default function Mentors() {
   const dispatch = useDispatch();
@@ -15,10 +15,12 @@ export default function Mentors() {
   const mentors = useSelector(selectMentors);
 
   const selectedMentorId = useParams().mentorId
-  const error = useSelector(hasError)
+  const error = useSelector(hasError);
+  const location = useLocation();
 
   useEffect(() => {
-    dispatch(loadMentors());
+    const queryParams = new URLSearchParams(location.search);
+    dispatch(loadMentors(queryParams));
   }, [dispatch]);
 
   useEffect(() => {
