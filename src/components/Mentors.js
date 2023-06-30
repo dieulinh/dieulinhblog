@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { hasError, loadMentor, selectCurrentMentor } from '../features/mentors/mentor';
 
-import Mentor from './Mentor';
+import Mentor from './MentorProfile';
 import { selectMentors, loadMentors, isLoadingMentors } from "../features/mentors/list";
 import Search from "./Search";
 import { Link, useParams } from "react-router-dom";
