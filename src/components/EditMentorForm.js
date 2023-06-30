@@ -7,9 +7,19 @@ export default function EditMentorForm() {
   const dispatch = useDispatch();
   const mentor = useSelector(selectCurrentMentor)
   const error = useSelector(hasError)
-  const [firstName, setFirstName] = useState()
-  const [lastName, setLastName] = useState()
   const selectedMentorId = useParams().mentorId;
+  const [formData, setFormData] = useState({
+  });
+  function handleChange(evt) {
+    const { name, value } = evt.target;
+    setFormData(f => ({
+      ...f,
+      [name]: value,
+    }));
+  }
+  const handleUpdateMentor = () => {
+
+  }
   useEffect(() => {
     dispatch(loadMentor(selectedMentorId));
   }, [dispatch])
@@ -17,25 +27,7 @@ export default function EditMentorForm() {
     if (!mentor) {
       return;
     }
-
-      const {
-        id,
-        firstName,
-        lastName,
-        email,
-        phone,
-        address,
-        specialization,
-        experienceYears,
-        bio,
-        country,
-        skills,
-        createdAt,
-        updatedAt,
-      } = mentor
-      setFirstName(firstName);
-      setLastName(lastName)
-
+    setFormData(mentor)
   }, [mentor])
   if (error) {
     return <div>
@@ -43,9 +35,8 @@ export default function EditMentorForm() {
     </div>
   }
   if (!mentor) {
-    return
+    return <></>
   }
-
 
   return (
     <div className='mentor-container'>
@@ -56,8 +47,8 @@ export default function EditMentorForm() {
           <div>
             <input
               id="first_name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.currentTarget.value)}
+              value={formData.firstName}
+              onChange={handleChange}
             />
           </div>
         </label>
@@ -65,13 +56,74 @@ export default function EditMentorForm() {
           last name
           <div>
             <input
-              id="last_name"
-              value={lastName}
-              onChange={(e) => setLastName(e.currentTarget.value)}
+              id="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+            />
+          </div>
+        </label>
+        <label>
+          phone
+          <div>
+            <input
+              id="phone"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+          </div>
+        </label>
+        <label>
+          specialization
+          <div>
+            <input
+              id="specialization"
+              value={formData.specialization}
+              onChange={handleChange}
+            />
+          </div>
+        </label>
+        <label>
+          bio
+          <div>
+            <input
+              id="bio"
+              value={formData.bio}
+              onChange={handleChange}
+            />
+          </div>
+        </label>
+        <label>
+          experience years
+          <div>
+            <input
+              id="experienceYears"
+              value={formData.experienceYears}
+              onChange={handleChange}
+            />
+          </div>
+        </label>
+        <label>
+          country
+          <div>
+            <input
+              id="country"
+              value={formData.country}
+              onChange={handleChange}
+            />
+          </div>
+        </label>
+        <label>
+          email
+          <div>
+            <input
+              id="email"
+              value={formData.email}
+              onChange={handleChange}
             />
             <button className="primary">Update</button>
           </div>
         </label>
+
       </div>
     </div>
   )
