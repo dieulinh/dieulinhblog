@@ -8,8 +8,16 @@ import { selectMentors, loadMentors, isLoadingMentors } from "../features/mentor
 import Search from "./Search";
 import { Link, useParams } from "react-router-dom";
 
+import './Mentors.css';
+import MentorSearchForm from "./MentorSearch";
+
+
+
 export default function Mentors() {
   const dispatch = useDispatch();
+
+  // use search reducer
+  
 
   const isLoading = useSelector(isLoadingMentors);
   const mentors = useSelector(selectMentors);
@@ -36,9 +44,12 @@ export default function Mentors() {
       {selectedMentorId && (<Mentor />)}
       <section>
         <h1>Mentors</h1>
-        {JSON.stringify()}
-        <ul className="mentor-list">
 
+        
+        <h1>{error}</h1>
+        <MentorSearchForm />
+
+        <ul className="mentor-list">
           {mentors.length > 0 && mentors.map(mentor => (
 
             <li key={mentor.id}>

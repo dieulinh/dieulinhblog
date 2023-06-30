@@ -3,7 +3,8 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const loadMentors = createAsyncThunk(
   'mentors/list/load',
-  async () => {
+  async (query) => {
+    console.log('query', query)
     const data = await axios.get(`/api/mentors`);
     return data
   }
