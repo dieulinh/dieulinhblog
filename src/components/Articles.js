@@ -10,6 +10,7 @@ import { selectArticles, loadArticles, isLoadingArticles } from "../features/art
 import Search from "./Search";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { navigate } from "../app/App";
+import Loader from "./Loader";
 
 // Import Link and useSearchParams from React Router
 // const loadArticles = async () => {
@@ -45,7 +46,7 @@ export default function Articles() {
   }, [selectedArticleId]);
 
   if (isLoading) {
-    return (<p>Articles are loading</p>)
+    return (<Loader />)
   }
   return (
     <div>

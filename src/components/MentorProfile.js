@@ -1,11 +1,18 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { hasError, selectCurrentMentor } from '../features/mentors/mentor.js';
+import { hasError, isLoadingCurrentMentor, selectCurrentMentor } from '../features/mentors/mentor.js';
 import './MentorProfile.css'
+import Loader from './Loader.js';
 
 export default function Mentor () {
   const mentor = useSelector(selectCurrentMentor)
   const error = useSelector(hasError)
+  const isLoading = useSelector(isLoadingCurrentMentor)
+
+
+  if (isLoading) {
+    return (<Loader />)
+  }
   if (error) {
     return <div>
       Error loading mentor.
