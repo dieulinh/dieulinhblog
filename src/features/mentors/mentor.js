@@ -21,6 +21,7 @@ export const mentorSlice = createSlice({
     builder
       .addCase(loadMentor.pending, (state) => {
         state.isLoadingCurrentMentor = true;
+        state.mentor = null;
         state.hasError = false;
       })
       .addCase(loadMentor.fulfilled, (state, action) => {

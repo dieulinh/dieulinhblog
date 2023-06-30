@@ -1,12 +1,12 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {CurrentUser, UserContext} from "../context/UserContext";
+import { CurrentUser, UserContext } from "../context/UserContext";
 // import { selectCurrentUser, logOut } from "../features/session/sessionSlice"
 
 // Import the NavLink component.
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-export default function Header () {
+export default function Header() {
   // const currentUser = useContext(CurrentUser)
   const { currentUser, setCurrentUser } = useContext(UserContext);
   const dispatch = useDispatch();
@@ -21,19 +21,19 @@ export default function Header () {
     <div className="header">
       <div className={"left-nav-bar"}>
         <img src="logo192.png" height={70} alt="" />
-       <NavLink to="/articles">Articles</NavLink>
-       <NavLink to="/mentors">Mentors</NavLink>
+        <NavLink to="/articles">Articles</NavLink>
+        <NavLink to="/mentors">Mentors</NavLink>
       </div>
 
       {
-        currentUser&&currentUser.email
+        currentUser && currentUser.email
           ? <div className={"right-nav-bar"}>
 
-              <NavLink to="/profile">Profile</NavLink>
-              <button onClick={handleLogout} className="logout"> Log Out </button>
-            </div>
+            <NavLink to="/profile">Profile</NavLink>
+            <button onClick={handleLogout} className="logout"> Log Out </button>
+          </div>
           : <NavLink to="/login">Login</NavLink>
-        }
+      }
 
     </div>
   )
