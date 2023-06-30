@@ -8,6 +8,8 @@ import { selectMentors, loadMentors, isLoadingMentors } from "../features/mentor
 import Search from "./Search";
 import { Link, useParams, useLocation } from "react-router-dom";
 
+import './Mentors.css'
+
 export default function Mentors() {
   const dispatch = useDispatch();
 
@@ -35,27 +37,29 @@ export default function Mentors() {
   }
   return (
     <div>
-      {selectedMentorId && (<Mentor />)}
-      <section>
-        <h1>Mentors</h1>
-        {JSON.stringify()}
-        <ul className="mentor-list">
-
-          {mentors.length > 0 && mentors.map(mentor => (
-
+      <h1>Mentors</h1>
+      <Search />
+      <div className="mentors">
+        <ul className="mentors-list">
+          {mentors.map(mentor => (
             <li key={mentor.id}>
-                <Link to={`/mentors/${mentor.id}`}>
-                  <span>{mentor.first_name} {mentor.last_name}</span>
-                </Link>
-                <span>Specialization: {mentor.specialization || "n/a"} </span>
-                <span>Experience Years: {mentor.experience_years}</span>
-              </li>
+              {
+                selectedMentorId == mentor.id ? (
+                  <div className="mentor-profile">
+                    <Mentor />
+                  </div>) : (<>
+                    <Link to={`/mentors/${mentor.id}`}>
+                      <div>{mentor.first_name} {mentor.last_name}</div>
+                    </Link>
+                    <span>Specialization: {mentor.specialization || "n/a"} </span>
+                    <span>Experience Years: {mentor.experience_years}</span>
+                  </>
+                )
+              }
+            </li>
           ))}
         </ul>
-        <Search />
-
-      </section>
-
+      </div>
     </div>
   )
 }
