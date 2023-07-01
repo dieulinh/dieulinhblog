@@ -1,0 +1,18 @@
+.mentor-search-form label {
+    padding: 0.5rem 0 0.35rem;
+}
+
+.mentor-search-form input {
+    height: 1rem;
+}
+
+.country-dropdown {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border-color: #e0e0e0;
+    background: transparent;
+}
+
+.mentor-search-form {
+    margin-bottom: 2rem;
+}
