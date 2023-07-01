@@ -1,13 +1,25 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { hasError, isLoadingCurrentMentor, selectCurrentMentor } from '../features/mentors/mentor.js';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { hasError, isLoadingCurrentMentor, loadMentor, selectCurrentMentor } from '../features/mentors/mentor.js';
 import './MentorProfile.css'
 import Loader from './Loader.js';
+import { useParams } from 'react-router-dom';
+
+// mentor search initialState
+
+
+
 
 export default function Mentor () {
   const mentor = useSelector(selectCurrentMentor)
   const error = useSelector(hasError)
   const isLoading = useSelector(isLoadingCurrentMentor)
+  const mentorId = useParams().mentorId
+  const dispatch = useDispatch()
+
+  useEffect(() => {    
+    dispatch(loadMentor(mentorId));
+  }, [dispatch, mentorId]);
 
 
   if (isLoading) {
@@ -33,8 +45,9 @@ export default function Mentor () {
     experienceYears,
     bio,
     createdAt,
-    updatedAt,
+    updatedAt,    
   } = mentor
+
 
   return (
     <div className='mentor-container'>
@@ -46,14 +59,31 @@ export default function Mentor () {
         <p className='mentor-specialization'>Specialization: {specialization}</p>
         <p className='mentor-experience'>Experience: {experienceYears} years</p>
       </div>
+      {/* <div className="mentor-photo">                
+        <img src="https://via.placeholder.com/300" alt="mentor" />
+      </div> */}
+      <div className="mentor-background">
+        
+      </div>
+      {/* <div className="mentor-video">
+        <video controls>
+          <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+          Your browser does not support HTML video.
+        </video>
+      </div> */}
       <div className='mentor-bio'>
         <h2>About Me</h2>
         <p>{bio}</p>
       </div>
+      <div className="mentor-posts">
+
+      </div>
       <div className='mentor-timeline'>
-        <p>Created at: {createdAt}</p>
-        <p>Updated at: {updatedAt}</p>
+        {/* <p>Joined: {createdAt}</p> */}
+        {/* <p>Updated at: {updatedAt}</p> */}
       </div>
     </div>
   )
 }
+
+

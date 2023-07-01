@@ -1,25 +1,21 @@
 .mentors {
-    /* display: flex; */
 }
 
 .mentors-list {
-    /* flex: 1; */
 }
 
 .mentor-profile {
-    /* flex: 4; */
-    /* margin-left: 20px; */
 }
 
-.mentors-list {
-    /* list-style: none; */
-    /* padding: 0; */
+.mentors-list a {
+    margin: 0.5rem;
+    display: inline-block;
 }
 
-.mentors-list li {
-    /* margin-bottom: 10px; */
+.mentors-list span {
+    display: inline-block;
+    margin: 0.5rem;
 }
 
 .mentor-profile {
-    /* padding: 10px; */
 }

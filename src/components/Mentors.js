@@ -17,7 +17,6 @@ export default function Mentors() {
   const isLoading = useSelector(isLoadingMentors);
   const mentors = useSelector(selectMentors);
 
-  const selectedMentorId = useParams().mentorId
   const error = useSelector(hasError);
   const location = useLocation();
 
@@ -26,12 +25,6 @@ export default function Mentors() {
     dispatch(loadMentors(queryParams));
   }, [dispatch]);
 
-  useEffect(() => {
-    if (!selectedMentorId) return;
-
-    dispatch(loadMentor(selectedMentorId));
-
-  }, [selectedMentorId]);
 
   if (isLoading) {
     return (<Loader />)
@@ -44,19 +37,12 @@ export default function Mentors() {
         <ul className="mentors-list">
           {mentors.map(mentor => (
             <li key={mentor.id}>
-              {
-                selectedMentorId == mentor.id ? (
-                  <div className="mentor-profile">
-                    <Mentor />
-                  </div>) : (<>
-                    <Link to={`/mentors/${mentor.id}`}>
-                      <div>{mentor.first_name} {mentor.last_name}</div>
-                    </Link>
-                    <span>Specialization: {mentor.specialization || "n/a"} </span>
-                    <span>Experience Years: {mentor.experience_years}</span>
-                  </>
-                )
-              }
+              <Link to={`/mentors/${mentor.id}`}>
+                <div>{mentor.first_name} {mentor.last_name}</div>
+              </Link>
+              <span>Teaches {mentor.specialization || "n/a"} </span>
+              <span>Experience: {mentor.experience_years}</span>
+              <span>Country: {mentor.country}</span>
             </li>
           ))}
         </ul>
