@@ -7,6 +7,8 @@ import {
   selectSearchTerm
 } from '../features/mentors/search-form'
 import { useNavigate } from 'react-router-dom'
+import { CountryDropdown } from 'react-country-region-selector'
+import './MentorSearch.css'
 
 function MentorSearchForm() {
   const dispatch = useDispatch()
@@ -14,8 +16,8 @@ function MentorSearchForm() {
   const searchTerm = useSelector(selectSearchTerm)
   const navigate = useNavigate()
 
-  const handleCountryChange = (event) => {
-    dispatch(setCountry(event.target.value))
+  const handleCountryChange = (val) => {
+    dispatch(setCountry(val))
   }
 
   const handleSearchTermChange = (event) => {
@@ -24,11 +26,11 @@ function MentorSearchForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    navigate(`/mentors?country=${country}&searchTerm=${searchTerm}`)
+    navigate(`/mentors?country=${country}&q=${searchTerm}`)
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="mentor-search-form" onSubmit={handleSubmit}>
       <div>
         <label htmlFor="searchTerm">Search Term:</label>
         <input
@@ -38,12 +40,12 @@ function MentorSearchForm() {
           onChange={handleSearchTermChange}
         />
         <label htmlFor="country">Country:</label>
-        <select id="country" value={country} onChange={handleCountryChange}>
-          <option value="all">All</option>
-          <option value="usa">USA</option>
-          <option value="uk">UK</option>
-          <option value="canada">Canada</option>
-        </select>
+        <CountryDropdown
+          classes='country-dropdown'
+          defaultOptionLabel="Any Country"
+          value={country}
+          valueType='short'
+          onChange={(val) => handleCountryChange(val)} />
 
         <button type="submit">Search</button>
       </div>

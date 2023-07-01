@@ -5,8 +5,9 @@ export const loadMentors = createAsyncThunk(
   'mentors/list/load',
   async (query) => {
     const page = query.get('page') || 1
+    const country = query.get('country') || ''
     const q = query.get('q') || ''
-    const data = await axios.get(`/api/mentors?page=${page}&q=${encodeURIComponent(q)}`);
+    const data = await axios.get(`/api/mentors?page=${page}&country=${country}&q=${encodeURIComponent(q)}`);
     return data
   }
 );
