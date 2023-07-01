@@ -15,8 +15,6 @@ export default function EditMentorForm() {
   const [formData, setFormData] = useState({});
   useEffect(() => {
     dispatch(loadMentor(mentorId));
-
-
   }, [dispatch, mentorId])
   useEffect(() => {
     if(!mentor) return;
@@ -37,13 +35,10 @@ export default function EditMentorForm() {
     return <p>Loading data</p>
   }
 
-
   return (
     <div className='mentor-container'>
       <h1 className='mentor-title'>Update</h1>
-
       <div>
-
         <label>
             first name
             <div>
@@ -88,6 +83,17 @@ export default function EditMentorForm() {
               />
             </div>
           </label>
+        <label>
+          hourly rate
+          <div>
+            <input
+              id="hourly_rate"
+              name={"hourly_rate"}
+              value={formData.hourlyRate}
+              onChange={handleChange}
+            />
+          </div>
+        </label>
           <label>
             bio
             <div>
