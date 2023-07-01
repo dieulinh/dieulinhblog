@@ -1,25 +1,53 @@
 .mentors {
-    /* display: flex; */
 }
 
 .mentors-list {
-    /* flex: 1; */
 }
 
 .mentor-profile {
-    /* flex: 4; */
-    /* margin-left: 20px; */
 }
 
-.mentors-list {
-    /* list-style: none; */
-    /* padding: 0; */
+.mentors-list a {
+    margin: 0.5rem;
+    display: inline-block;
 }
 
-.mentors-list li {
-    /* margin-bottom: 10px; */
+.mentors-list span {
+    display: inline-block;
+    margin: 0.5rem;
 }
 
 .mentor-profile {
-    /* padding: 10px; */
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+}
+
+.search-form input {
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1.2rem;
+}
+
+.search-form button {
+    width: 100px;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #1e90ff;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
 }

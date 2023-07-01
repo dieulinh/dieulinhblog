@@ -1,11 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-const  BASE_URL = process.env.REACT_APP_DEFAULT_API_URL;
+import axios from '../../utils/axiosConfig';
 export const loadMentor = createAsyncThunk(
   'mentors/mentor/load',
   async (mentorId) => {
-    const data = await axios(`${BASE_URL}/api/mentors/${mentorId}`);
+    const data = await axios(`/api/mentors/${mentorId}`);
     return data.data;
   }
 );

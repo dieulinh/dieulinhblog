@@ -21,7 +21,7 @@ const Search = () => {
 
   return (
     <form onSubmit={onSearchHandler} className="search-form">
-      Search <input type="text" className="search" ref={searchInputRef} />
+      Search Mentors <input type="text" className="search" ref={searchInputRef} />
       <button type="submit" className="search-button">
         🔎
       </button>
