@@ -19,6 +19,8 @@ import { CurrentUser } from '../context/UserContext';
 
 import "./App.css";
 import Landing from "../components/Landing";
+import ScheduleLesson from "../components/ScheduleLesson";
+import SendMessage from "../components/SendMessage";
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Root />}>
@@ -34,6 +36,8 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/mentors' element={<Mentors />} />
     <Route path='/mentors/:mentorId' element={<MentorProfile />} />
     <Route path='/mentors/:mentorId/edit' element={<EditMentorForm />} />
+    <Route path='/mentors/:mentorId/schedule' element={<ScheduleLesson />} />
+    <Route path='/mentors/:mentorId/message' element={<SendMessage />} />
 
     <Route path='/profile' element={<Profile />}>
       <Route path="edit" element={<EditProfileForm />}>

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { hasError, isLoadingCurrentMentor, loadMentor, selectCurrentMentor } from '../features/mentors/mentor.js';
 import './MentorProfile.css'
 import Loader from './Loader.js';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 // mentor search initialState
 
@@ -59,6 +59,12 @@ export default function Mentor () {
         <p className='mentor-specialization'>Specialization: {specialization}</p>
         <p className='mentor-experience'>Experience: {experienceYears} years</p>
       </div>
+      <div>
+        <Link to={`/mentors/${mentorId}/message`}>Send a message</Link> to {firstName} {lastName}.
+      </div>
+      <div>
+        <Link to={`/mentors/${mentorId}/schedule`}>Schedule a meeting</Link> with {firstName} {lastName}.
+      </div>
       {/* <div className="mentor-photo">                
         <img src="https://via.placeholder.com/300" alt="mentor" />
       </div> */}
@@ -70,7 +76,8 @@ export default function Mentor () {
           <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
           Your browser does not support HTML video.
         </video>
-      </div> */}
+      </div> */
+      }
       <div className='mentor-bio'>
         <h2>About Me</h2>
         <p>{bio}</p>

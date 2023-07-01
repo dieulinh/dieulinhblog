@@ -13,7 +13,6 @@ input {
 }
 
 button {
-
     background-color: #abd373;
     line-height: 40px;
     border-radius: 5px;
@@ -66,11 +65,15 @@ a {
   color: #333;
   padding: 0 0.5rem;
 }
+
 a:link {
   text-decoration: none;
   margin: 5px;
 }
-
 a:hover {
   color: #abd373;
+}
+
+form label {
+  padding: 0.5rem 0;
 }
