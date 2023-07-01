@@ -25,6 +25,7 @@ export default function Login () {
 
     if(user.token) {
       setCurrentUser(user)
+      localStorage.setItem("user", JSON.stringify(user))
       navigate('/profile')
     }
   }, [user])

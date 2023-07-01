@@ -11,6 +11,11 @@ instance.interceptors.request.use(
     (config) => {
         // Modify the request config if needed (e.g., add headers, authentication tokens)
         console.log('Request Interceptor');
+      const user = JSON.parse(localStorage.getItem("user"));
+
+      if (user) {
+        config.headers.Authorization = user.token;
+      }
         return config;
     },
     (error) => {
