@@ -1,26 +1,34 @@
-  import React from 'react'
-  import { useDispatch, useSelector } from 'react-redux'
-  import {
-    setCountry,
-    setSearchTerm,
-    selectCountry,
-    selectSearchTerm
-  } from '../features/mentors/search-form'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  setCountry,
+  setSearchTerm,
+  selectCountry,
+  selectSearchTerm
+} from '../features/mentors/search-form'
+import { useNavigate } from 'react-router-dom'
 
-  function MentorSearchForm() {
-    const dispatch = useDispatch()
-    const country = useSelector(selectCountry)
-    const searchTerm = useSelector(selectSearchTerm)
+function MentorSearchForm() {
+  const dispatch = useDispatch()
+  const country = useSelector(selectCountry)
+  const searchTerm = useSelector(selectSearchTerm)
+  const navigate = useNavigate()
 
-    const handleCountryChange = (event) => {
-      dispatch(setCountry(event.target.value))
-    }
+  const handleCountryChange = (event) => {
+    dispatch(setCountry(event.target.value))
+  }
 
-    const handleSearchTermChange = (event) => {
-      dispatch(setSearchTerm(event.target.value))
-    }
+  const handleSearchTermChange = (event) => {
+    dispatch(setSearchTerm(event.target.value))
+  }
 
-    return (
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    navigate(`/mentors?country=${country}&searchTerm=${searchTerm}`)
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="searchTerm">Search Term:</label>
         <input
@@ -36,8 +44,11 @@
           <option value="uk">UK</option>
           <option value="canada">Canada</option>
         </select>
-      </div>
-    )
-  }
 
-  export default MentorSearchForm
+        <button type="submit">Search</button>
+      </div>
+    </form>
+  )
+}
+
+export default MentorSearchForm

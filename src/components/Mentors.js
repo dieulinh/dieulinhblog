@@ -25,7 +25,7 @@ export default function Mentors() {
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     dispatch(loadMentors(queryParams));
-  }, [dispatch]);
+  }, [dispatch, location]);
 
 
   if (isLoading) {
