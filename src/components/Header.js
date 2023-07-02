@@ -4,7 +4,7 @@ import { CurrentUser, UserContext } from "../context/UserContext";
 // import { selectCurrentUser, logOut } from "../features/session/sessionSlice"
 
 // Import the NavLink component.
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 export default function Header() {
   // const currentUser = useContext(CurrentUser)
@@ -27,11 +27,14 @@ export default function Header() {
 
       {
         currentUser && currentUser.email
-          ? <div className={"right-nav-bar"}>
+          ?
+          (
+            <div className={"right-nav-bar"}>
 
-            <NavLink to="/profile">Profile</NavLink>
-            <button onClick={handleLogout} className="logout"> Log Out </button>
-          </div>
+              <NavLink to="/profile">Profile</NavLink>
+              <button onClick={handleLogout} className="logout"> Log Out </button>
+            </div>
+          )
           : <NavLink to="/login">Login</NavLink>
       }
 
