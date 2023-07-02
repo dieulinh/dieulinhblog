@@ -1,11 +1,13 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { hasError, isLoadingCurrentMentor, selectCurrentMentor, loadMentor } from '../features/mentors/mentor';
 
 import {isUpdating, selectMentor, updateMentor} from '../features/currentMentor/editMentorSlice';
 import {UserContext} from '../context/UserContext'
+import { CountryDropdown } from 'react-country-region-selector'
 export default function EditMentorForm() {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const mentor = useSelector(selectCurrentMentor)
   const isLoadingMentor = useSelector(isLoadingCurrentMentor);
@@ -27,8 +29,15 @@ export default function EditMentorForm() {
       [name]: value,
     }));
   }
+  const handleCountry = (evt) => {
+    setFormData(f => ({
+      ...f,
+      country: evt
+    }));
+  }
   const handleUpdateMentor = () => {
     dispatch(updateMentor(formData))
+    navigate(`/mentors/${mentorId}`)
   }
 
   if (isLoadingMentor) {
@@ -119,12 +128,13 @@ export default function EditMentorForm() {
           <label>
             country
             <div>
-              <input
-                id="country"
-                name={"country"}
+              <CountryDropdown
+                classes='country-dropdown'
+                defaultOptionLabel="Any Country"
                 value={formData.country}
-                onChange={handleChange}
-              />
+                name={"country"}
+                valueType='short'
+                onChange={handleCountry} />
             </div>
           </label>
           <label>
