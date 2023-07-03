@@ -83,8 +83,8 @@ export default function Mentor () {
         <h2>About Me</h2>
         <p>{bio}</p>
       </div>
-      <div className="mentor-posts">
-
+      <div className="mentor-posts pull-left">
+        { currentUser && currentUser.email && <Link to={`/mentors/${mentorId}/add_work`}>Schedule a meeting</Link> }
       </div>
       <div className='mentor-timeline'>
         {/* <p>Joined: {createdAt}</p> */}

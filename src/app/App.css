@@ -11,7 +11,11 @@ input {
     outline: none;
     background-color: #fff;
 }
-
+.pull-left {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
 button {
     background-color: #abd373;
     line-height: 40px;
