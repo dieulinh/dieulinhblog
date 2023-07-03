@@ -4,6 +4,7 @@ import SignUp from "../components/SignUp";
 import Login from "../components/Login";
 import Mentors from "../components/Mentors";
 import MentorProfile from "../components/MentorProfile";
+import AddWork from "../components/AddWork";
 import Articles from "../components/Articles";
 
 import Categories from "../components/Categories";
@@ -35,6 +36,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/login' element={<Login />} />
     <Route path='/mentors' element={<Mentors />} />
     <Route path='/mentors/:mentorId' element={<MentorProfile />} />
+    <Route path='/mentors/:mentorId/add_work' element={<AddWork />} />
     <Route path='/mentors/:mentorId/edit' element={<EditMentorForm />} />
     <Route path='/mentors/:mentorId/schedule' element={<ScheduleLesson />} />
     <Route path='/mentors/:mentorId/message' element={<SendMessage />} />
