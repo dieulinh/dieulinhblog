@@ -3,8 +3,10 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const loadArticles = createAsyncThunk(
   'articles/loadArticles',
-  async () => {
-    const data = await axios(`/api/articles`);
+  async (query) => {
+    const title = query.get('title') || ""
+    //const data = await axios(`/api/article?title=${encodeURIComponent(title)}`);
+    const data = await axios(`/api/articles?title=${encodeURIComponent(title)}`);
 
     return data
 

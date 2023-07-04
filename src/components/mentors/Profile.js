@@ -1,10 +1,10 @@
 import React, { useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { hasError, isLoadingCurrentMentor, loadMentor, selectCurrentMentor } from '../features/mentors/mentor.js';
-import './MentorProfile.css'
-import Loader from './Loader.js';
+import { hasError, isLoadingCurrentMentor, loadMentor, selectCurrentMentor } from '../../features/mentors/mentor.js';
+import './Profile.css'
+import Loader from '../Loader.js';
 import { Link, useParams } from 'react-router-dom';
-import {UserContext} from '../context/UserContext'
+import {UserContext} from '../../context/UserContext'
 
 // mentor search initialState
 

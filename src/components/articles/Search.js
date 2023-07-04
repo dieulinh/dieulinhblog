@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import { useNavigate, createSearchParams } from 'react-router-dom';
+import './Search.css'
 
 const Search = () => {
   const searchInputRef = useRef();
   const navigate = useNavigate();
 
-  const onSearchHandler = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const query = {
@@ -20,11 +21,16 @@ const Search = () => {
   };
 
   return (
-    <form onSubmit={onSearchHandler} className="search-form">
-      Search Mentors <input type="text" className="search" ref={searchInputRef} />
-      <button type="submit" className="search-button">
-        🔎
-      </button>
+    <form className="article-search-form" onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="searchTerm">Search Articles</label>
+        <input
+          type="text"
+          id="searchTerm"
+          ref={searchInputRef}
+        />
+        <button type="submit">Search</button>
+      </div>
     </form>
   );
 };

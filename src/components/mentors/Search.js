@@ -5,10 +5,10 @@ import {
   setSearchTerm,
   selectCountry,
   selectSearchTerm
-} from '../features/mentors/search-form'
+} from '../../features/mentors/search-form'
 import { useNavigate } from 'react-router-dom'
 import { CountryDropdown } from 'react-country-region-selector'
-import './MentorSearch.css'
+import './Search.css'
 
 function MentorSearchForm() {
   const dispatch = useDispatch()

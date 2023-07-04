@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { registerUser } from "../features/auth/signupSlice";
+import { registerUser } from "../../features/auth/signupSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate, Link } from 'react-router-dom';
 

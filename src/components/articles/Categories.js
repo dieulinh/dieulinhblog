@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectCategories } from '../features/categories/categoriesSlice';
+import { selectCategories } from '../../features/categories/categoriesSlice';
 import { Link, Outlet } from 'react-router-dom';
 
 export default function Categories () {

@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { hasError, selectMentors, loadMentors, isLoadingMentors } from "../features/mentors/list";
+import { hasError, selectMentors, loadMentors, isLoadingMentors } from "../../features/mentors/list";
 import { Link, useLocation } from "react-router-dom";
 
-import Loader from "./Loader";
-import './Mentors.css';
-import MentorSearchForm from "./MentorSearch";
+import Loader from "../Loader";
+import './List.css';
+import MentorSearchForm from "./Search";
 
 
 
