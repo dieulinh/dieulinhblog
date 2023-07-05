@@ -1,8 +1,8 @@
 import React, { useState, useEffect,useContext } from "react";
 
-import { loginUser } from "../features/auth/authSlice";
-import {selectIsLoggedIn, selectCurrentUser, isLoggedInHasError,isLoading } from "../features/auth/authSlice";
-import {UserContext} from "../context/UserContext";
+import { loginUser } from "../../features/auth/authSlice";
+import {selectIsLoggedIn, selectCurrentUser, isLoggedInHasError,isLoading } from "../../features/auth/authSlice";
+import {UserContext} from "../../context/UserContext";
 import { useDispatch, useSelector } from "react-redux";
 import {Link, useNavigate} from 'react-router-dom';
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { sendMessage } from '../features/mentors/messages';
+import { sendMessage } from '../../features/mentors/messages';
 // import './SendMessage.css';
 
 function SendMessage() {

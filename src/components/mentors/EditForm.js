@@ -1,10 +1,10 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { hasError, isLoadingCurrentMentor, selectCurrentMentor, loadMentor } from '../features/mentors/mentor';
+import { hasError, isLoadingCurrentMentor, selectCurrentMentor, loadMentor } from '../../features/mentors/mentor';
 
-import {isUpdating, selectMentor, updateMentor} from '../features/currentMentor/editMentorSlice';
-import {UserContext} from '../context/UserContext'
+import {isUpdating, selectMentor, updateMentor} from '../../features/currentMentor/editMentorSlice';
+import {UserContext} from '../../context/UserContext'
 import { CountryDropdown } from 'react-country-region-selector'
 export default function EditMentorForm() {
   const navigate = useNavigate()

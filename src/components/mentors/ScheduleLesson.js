@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { scheduleLesson } from '../features/mentors/schedule';
+import { scheduleLesson } from '../../features/mentors/schedule';
 // import { scheduleLesson } from '../actions/lessonActions';
 
 function ScheduleLesson() {

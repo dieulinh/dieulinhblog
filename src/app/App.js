@@ -1,18 +1,18 @@
 import React from "react";
 import About from "../components/About";
-import SignUp from "../components/SignUp";
-import Login from "../components/Login";
-import Mentors from "../components/Mentors";
-import MentorProfile from "../components/MentorProfile";
+import SignUp from "../components/auth/SignUp";
+import Login from "../components/auth/Login";
+import Mentors from "../components/mentors/List";
+import MentorProfile from "../components/mentors/Profile";
 import AddWork from "../components/AddWork";
 import Articles from "../components/Articles";
 
-import Categories from "../components/Categories";
-import Category from "../components/Category";
-import Author from "../components/Author";
+import Categories from "../components/articles/Categories";
+import Category from "../components/articles/Category";
+import Author from "../components/articles/Author";
 import Profile from "../components/Profile";
-import EditProfileForm from "../components/EditProfileForm";
-import EditMentorForm from "../components/EditMentorForm";
+import EditProfileForm from "../components/EditProfile";
+import EditMentorForm from "../components/mentors/EditForm";
 import Root from "../components/Root";
 
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
@@ -20,8 +20,8 @@ import { CurrentUser } from '../context/UserContext';
 
 import "./App.css";
 import Landing from "../components/Landing";
-import ScheduleLesson from "../components/ScheduleLesson";
-import SendMessage from "../components/SendMessage";
+import ScheduleLesson from "../components/mentors/ScheduleLesson";
+import SendMessage from "../components/mentors/SendMessage";
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Root />}>

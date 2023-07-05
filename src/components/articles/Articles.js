@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-
   loadCurrentArticle, selectCurrentArticle
-} from '../features/currentArticle/currentArticleSlice';
+} from '../../features/currentArticle/currentArticleSlice';
 import Article from './Article';
-import { selectArticles, loadArticles, isLoadingArticles } from "../features/articles/articlesSlice";
+import { selectArticles, loadArticles, isLoadingArticles } from "../../features/articles/articlesSlice";
 import Search from "./Search";
-import { Link, Navigate, useParams } from "react-router-dom";
-import { navigate } from "../app/App";
-import Loader from "./Loader";
+import { Link, useLocation, useParams } from "react-router-dom";
+import Loader from "../Loader";
 
 // Import Link and useSearchParams from React Router
 // const loadArticles = async () => {
@@ -21,6 +19,7 @@ import Loader from "./Loader";
 
 export default function Articles() {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   const isLoading = useSelector(isLoadingArticles);
   const articles = useSelector(selectArticles);
@@ -34,8 +33,9 @@ export default function Articles() {
   }
 
   useEffect(() => {
-    dispatch(loadArticles());
-  }, [dispatch]);
+    const queryParams = new URLSearchParams(location.search);
+    dispatch(loadArticles(queryParams));
+  }, [dispatch, location]);
 
   useEffect(() => {
     if (!selectedArticleId) return;
