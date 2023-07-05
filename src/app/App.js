@@ -14,6 +14,8 @@ import Profile from "../components/Profile";
 import EditProfileForm from "../components/EditProfileForm";
 import EditMentorForm from "../components/EditMentorForm";
 import Root from "../components/Root";
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 import { CurrentUser } from '../context/UserContext';
@@ -53,7 +55,9 @@ const router = createBrowserRouter(createRoutesFromElements(
 function App() {
   return (
     <CurrentUser>
-      <RouterProvider router={router}></RouterProvider>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <RouterProvider router={router}></RouterProvider>
+      </LocalizationProvider>
     </CurrentUser>
   );
 }
