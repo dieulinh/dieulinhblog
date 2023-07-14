@@ -5,8 +5,8 @@ import Login from "../components/auth/Login";
 import Mentors from "../components/mentors/List";
 import MentorProfile from "../components/mentors/Profile";
 import AddWork from "../components/AddWork";
-import Articles from "../components/Articles";
 
+import Articles from "../components/articles/Articles";
 import Categories from "../components/articles/Categories";
 import Category from "../components/articles/Category";
 import Author from "../components/articles/Author";
