@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import axios from '../utils/axiosConfig';
-import { useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 export default function AddWork() {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+
   const currentMentor = useSelector((state) => state.mentors.currentMentor);
   const [message, setMessage] = useState('');
   const [formData, setFormData] = useState({})
   const mentorId = useParams().mentorId;
 
   const handleChange = (evt) => {
-    console.log('handle')
     const { name, value } = evt.target;
     setFormData(f => ({
       ...f,
@@ -20,10 +21,15 @@ export default function AddWork() {
     }));
   };
   const handleStartDate = (val) => {
-    console.log(val)
     setFormData(f => ({
       ...f,
       ["start_date"]: val,
+    }));
+  }
+  const handleEndDate = (val) => {
+    setFormData(f => ({
+      ...f,
+      ["end_date"]: val,
     }));
   }
   const handleSubmit = (event) => {
@@ -32,6 +38,7 @@ export default function AddWork() {
     axios.post(`/api/mentors/${mentorId}/works`, formData).then(
       (rs) => {
         console.log(rs)
+        navigate(`/mentors/${mentorId}`)
       }
     )
 
@@ -55,9 +62,12 @@ export default function AddWork() {
           </label>
           <label htmlFor="start_date">Start date</label>
           <DatePicker format="MM/DD/YYYY" onChange={handleStartDate}/>
-          <label htmlFor="responsibilities">Work:</label>
+          <label htmlFor="end_date">End date</label>
+          <DatePicker format="MM/DD/YYYY" onChange={handleEndDate}/>
+          <label htmlFor="responsibilities">Responsibilities:</label>
           <textarea
-            id="message"
+            id="responsibilities"
+            name="responsibilities"
             value={formData.responsibilities}
             onChange={handleChange}
           ></textarea>

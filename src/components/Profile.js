@@ -12,7 +12,7 @@ export default function Profile () {
   return (
     <main>
       <h1>{currentUser.username}</h1>
-      <Link to={`edit`}>Edit</Link>
+      <Link to={`/profile`}>Edit</Link>
       <Outlet />
     </main>
   )
