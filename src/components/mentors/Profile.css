@@ -18,7 +18,17 @@
   margin: 5px 0;
   color: #666;
 }
-
+.work-company {
+  color: #0a16d1;
+  font-weight: 700;
+}
+.start-date {
+  color: #df9d6b;
+  font-weight: 400;
+}
+.work-description {
+  padding-left: 20px;
+}
 .mentor-bio h2 {
   margin-top: 0;
   color: #333;

@@ -44,6 +44,7 @@ export default function Mentor () {
     experienceYears,
     bio,
     country,
+    works,
     createdAt,
     updatedAt,    
   } = mentor
@@ -83,8 +84,21 @@ export default function Mentor () {
         <h2>About Me</h2>
         <p>{bio}</p>
       </div>
+      <div className="work-histories">
+        { works.map(work => (
+          <div>
+            <p className={"work-company"} key={work.id}>
+              {work.company_name} <span className="start-date"> {work.start_date} </span>
+            </p>
+            <p className="work-description"> {work.responsibilities}</p>
+          </div>
+
+          ))}
+
+      </div>
       <div className="mentor-posts pull-left">
-        { currentUser && currentUser.email && <Link to={`/mentors/${mentorId}/add_work`}>Schedule a meeting</Link> }
+        { currentUser && currentUser.email && <Link to={`/mentors/${mentorId}/add_work`} className="btn">Add work</Link> }
+        <Link to={`/mentors/${mentorId}`} className="btn mentor-fxn">Schedule mentor</Link>
       </div>
       <div className='mentor-timeline'>
         {/* <p>Joined: {createdAt}</p> */}
