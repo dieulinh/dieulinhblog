@@ -38,13 +38,15 @@ export default function Mentors() {
       <div className="mentors">
         <ul className="mentors-list">
           {mentors.map(mentor => (
-            <li key={mentor.id}>
+            <li key={mentor.id} className="mentor-item">
               <Link to={`/mentors/${mentor.id}`}>
                 <div>{mentor.first_name} {mentor.last_name}</div>
               </Link>
-              <span>Teaches {mentor.specialization || "n/a"} </span>
-              <span>Experience: {mentor.experience_years}</span>
-              <span>Country: {mentor.country}</span>
+              <div>
+                <span>Teaches {mentor.specialization || "n/a"} </span>
+                <span>Experience: {mentor.experience_years}</span>
+                <span>Country: {mentor.country}</span>
+              </div>
             </li>
           ))}
         </ul>

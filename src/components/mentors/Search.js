@@ -31,7 +31,7 @@ function MentorSearchForm() {
 
   return (
     <form className="mentor-search-form" onSubmit={handleSubmit}>
-      <div>
+      <div className="form-group">
         <label htmlFor="searchTerm">Search Term:</label>
         <input
           type="text"
@@ -39,6 +39,10 @@ function MentorSearchForm() {
           value={searchTerm}
           onChange={handleSearchTermChange}
         />
+
+
+      </div>
+      <div  className="form-group">
         <label htmlFor="country">Country:</label>
         <CountryDropdown
           classes='country-dropdown'
@@ -46,9 +50,11 @@ function MentorSearchForm() {
           value={country}
           valueType='short'
           onChange={(val) => handleCountryChange(val)} />
-
+      </div>
+      <div className={"form-group"}>
         <button type="submit">Search</button>
       </div>
+
     </form>
   )
 }
