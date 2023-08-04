@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mentor-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mentor-app
+  template:
+    metadata:
+      labels:
+        app: mentor-app
+    spec:
+      containers:
+        - name: mentor-app
+          image:  newdockernizelinh/dieulinhblog:latest
+          ports:
+            - containerPort: 80
+
