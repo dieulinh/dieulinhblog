@@ -31,11 +31,11 @@ export default function Header() {
           (
             <div className={"right-nav-bar"}>
 
-              <NavLink to="/profile">Profile</NavLink>
-              <button onClick={handleLogout} className="logout"> Log Out </button>
+              <NavLink to="/profile" className="user-btn">Profile</NavLink>
+              <button onClick={handleLogout} className="logout user-btn"> Log Out </button>
             </div>
           )
-          : <NavLink to="/login">Login</NavLink>
+          : <NavLink to="/login" className="user-btn">Login</NavLink>
       }
 
     </div>

@@ -40,18 +40,14 @@ input {
     color: #fff;
 }
 button {
-    background-color: #abd373;
-    line-height: 40px;
     border-radius: 5px;
-        font-size: 16px;
-    font-weight: 700;
-    line-height: 40px;
+    /* font-size: 16px; */
+    /* font-weight: 700; */
+    /* line-height: 40px; */
     padding: 0 30px;
-    -webkit-transition: .3s;
     transition: .3s;
     text-align: center;
-    color: #fff;
-    border: none;
+    padding: 3px;
 }
 .btn-link {
     border: none;
@@ -69,6 +65,7 @@ button {
     text-decoration: underline;
     border: none;
 }
+
 .App {
   text-align: center;
 }
@@ -104,11 +101,6 @@ a {
 }
 
 
-.header a {
-  color: #333;
-  padding: 0 0.5rem;
-}
-
 a:link {
   text-decoration: none;
   margin: 5px;
@@ -119,4 +111,11 @@ a:hover {
 
 form label {
   padding: 0.5rem 0;
+}
+
+.user-btn {
+    border: 1px solid #373737;
+    color: #ef7f7f;
+    padding: 8px;
+    border-radius: 5px;
 }
