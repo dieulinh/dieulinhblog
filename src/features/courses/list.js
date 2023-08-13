@@ -6,8 +6,8 @@ export const loadCourses = createAsyncThunk(
   async (query) => {
     const page = query.get('page') || 1
     const q = query.get('term') || ''
-    const data = await axios.get(`/api/courses/search?page=${page}&term=${encodeURIComponent(q)}`);
-    return data
+    const response = await axios.get(`/api/courses/search?page=${page}&term=${encodeURIComponent(q)}`);
+    return response.data
   }
 );
 
@@ -26,7 +26,7 @@ export const coursesSlice = createSlice({
         state.hasError = false;
       })
       .addCase(loadCourses.fulfilled, (state, action) => {
-        state.courses = action.payload.data.courses;
+        state.courses = action.payload.courses;
         state.hasError = false;
         state.isLoadingCourses = false
       })

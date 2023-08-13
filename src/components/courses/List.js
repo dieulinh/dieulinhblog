@@ -34,15 +34,15 @@ export default function Courses() {
 
       <div className="mentors">
         <ul className="mentors-list">
-          {courses.map(mentor => (
-            <li key={mentor.id} className="mentor-item">
-              <Link to={`/courses/${mentor.slug}`}>
-                <div>{mentor.course_name} {mentor.last_name}</div>
+          {courses.map(course => (
+            <li key={course.id} className="mentor-item">
+              <Link to={`/courses/${course.slug||course.id}`}>
+                <div>{course.course_name}</div>
               </Link>
               <div>
-                <span>Teaches {mentor.specialization || "n/a"} </span>
-                <span>Experience: {mentor.experience_years}</span>
-                <span>Country: {mentor.country}</span>
+                <span>Teaches {course.created_at || "n/a"} </span>
+                <span>Experience: {course.experience_years}</span>
+                <span>Country: {course.country}</span>
               </div>
             </li>
           ))}

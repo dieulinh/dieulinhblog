@@ -42,3 +42,7 @@
 .mentor-timeline p {
   margin: 5px 0;
 }
+.short-desc {
+  display: flex;
+  justify-content: space-around;
+}

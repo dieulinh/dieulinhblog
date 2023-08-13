@@ -23,6 +23,7 @@ export default function Header() {
         <img src="logo192.png" height={70} alt="" />
         <NavLink to="/articles">Articles</NavLink>
         <NavLink to="/mentors">Mentors</NavLink>
+        <NavLink to="/courses">Courses</NavLink>
       </div>
 
       {

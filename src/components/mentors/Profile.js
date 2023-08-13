@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { hasError, isLoadingCurrentMentor, loadMentor, selectCurrentMentor } from '../../features/mentors/mentor.js';
+import { hasError, isLoadingCurrentMentor, loadMentor, selectCurrentMentor } from '../../features/mentors/mentor';
 import './Profile.css'
 import Loader from '../Loader.js';
 import { Link, useParams } from 'react-router-dom';
@@ -44,22 +44,23 @@ export default function Mentor () {
     experienceYears,
     bio,
     country,
-    works,
-    createdAt,
-    updatedAt,    
+    works
   } = mentor
 
   return (
     <div className='mentor-container'>
-      <h1 className='mentor-title'>{firstName} {lastName}</h1>
+      <div className={"short-desc"}>
+        <h1 className='mentor-title'>{firstName} {lastName}</h1>
+        <div><p className='mentor-experience'>From: {address} {country}</p></div>
+      </div>
       { currentUser && currentUser.email && ( <Link to={`/mentors/${mentorId}/edit`}>Edit</Link>)}
       <div className='mentor-info'>
+
+        <p className='mentor-specialization'>Specialization: {specialization}</p>
+        <p className='mentor-experience'>Experience: {experienceYears} years</p>
         <p className='mentor-email'>Email: {email}</p>
         <p className='mentor-phone'>Phone: {phone}</p>
         <p className='mentor-address'>Address: {address}</p>
-        <p className='mentor-specialization'>Specialization: {specialization}</p>
-        <p className='mentor-experience'>Experience: {experienceYears} years</p>
-        <p className='mentor-experience'>From: {country}</p>
       </div>
       <div>
         <Link to={`/mentors/${mentorId}/message`}>Send a message</Link> to {firstName} {lastName}.
@@ -86,7 +87,7 @@ export default function Mentor () {
       </div>
       <div className="work-histories">
         { works.map(work => (
-          <div>
+          <div key={work.id}>
             <p className={"work-company"} key={work.id}>
               {work.company_name} <span className="start-date"> {work.start_date} </span>
             </p>

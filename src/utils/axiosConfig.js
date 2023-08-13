@@ -10,7 +10,6 @@ const instance = axios.create({
 instance.interceptors.request.use(
     (config) => {
         // Modify the request config if needed (e.g., add headers, authentication tokens)
-        console.log('Request Interceptor');
       const user = JSON.parse(localStorage.getItem("user"));
 
       if (user) {
@@ -26,17 +25,17 @@ instance.interceptors.request.use(
 );
 
 // Add a response interceptor
-instance.interceptors.response.use(
-    (response) => {
-        // Modify the response data if needed
-        console.log('Response Interceptor');
-        return response;
-    },
-    (error) => {
-        // Handle response errors
-        console.error('Response Error:', error);
-        return Promise.reject(error);
-    }
-);
+// instance.interceptors.response.use(
+//     (response) => {
+//         // Modify the response data if needed
+//         console.log('Response Interceptor');
+//         return response;
+//     },
+//     (error) => {
+//         // Handle response errors
+//         console.error('Response Error:', error);
+//         return Promise.reject(error);
+//     }
+// );
 
 export default instance;

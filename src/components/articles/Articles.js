@@ -55,17 +55,15 @@ export default function Articles() {
       <section>
         <h1>Articles</h1>
 
-        <ul className="article-list">
+        <div className="article-list">
 
           {articles.length > 0 && articles.map(article => (
 
-            <Link to={`/articles/${article.id}`}>
-              <li key={article.id}>
-                {article.title}
-              </li>
+            <Link to={`/articles/${article.id}`} key={article.id}>
+              {article.title}
             </Link>
           ))}
-        </ul>
+        </div>
 
         <Search />
 
