@@ -3,6 +3,7 @@ import About from "../components/About";
 import SignUp from "../components/auth/SignUp";
 import Login from "../components/auth/Login";
 import Mentors from "../components/mentors/List";
+import Courses from "../components/courses/List";
 import MentorProfile from "../components/mentors/Profile";
 import AddWork from "../components/AddWork";
 
@@ -31,6 +32,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/about' element={<About />} />
     <Route path='/authors/:name' element={<Author />} />
     <Route path='/articles' element={<Articles />} />
+    <Route path='/courses' element={<Courses />} />
     <Route path='/articles/:articleId' element={<Articles />} />
     <Route path='/categories' element={<Categories />}>
       <Route path=':name' element={<Category />} />

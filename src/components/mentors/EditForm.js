@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { hasError, isLoadingCurrentMentor, selectCurrentMentor, loadMentor } from '../../features/mentors/mentor';
 
 import {isUpdating, selectMentor, updateMentor} from '../../features/currentMentor/editMentorSlice';

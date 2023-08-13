@@ -66,7 +66,7 @@ export default function Articles() {
             </Link>
           ))}
         </ul>
-        <button onClick={scrollUp}>Scroll to Top</button>
+
         <Search />
 
       </section>

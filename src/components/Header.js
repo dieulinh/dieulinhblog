@@ -31,8 +31,8 @@ export default function Header() {
           (
             <div className={"right-nav-bar"}>
 
-              <NavLink to="/profile" className="user-btn">Profile</NavLink>
-              <button onClick={handleLogout} className="logout user-btn"> Log Out </button>
+              <NavLink to="/profile" className="btn user-btn">Profile</NavLink>
+              <button onClick={handleLogout} className="btn user-btn"> Log Out </button>
             </div>
           )
           : <NavLink to="/login" className="user-btn">Login</NavLink>

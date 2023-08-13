@@ -136,7 +136,10 @@ label > div {
 }
 
 .logout {
-  margin-left: auto;
+  border: 1px solid #373737;
+  color: #e9dddd;
+  padding: 8px;
+  border-radius: 5px;
 }
 
 h2 {
