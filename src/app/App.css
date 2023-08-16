@@ -106,3 +106,7 @@ form label {
     padding: 8px;
     border-radius: 5px;
 }
+.article-list {
+    display: flex;
+    flex-direction: column;
+}
