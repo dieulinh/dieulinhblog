@@ -11,7 +11,7 @@ export default function Profile () {
 
   return (
     <main>
-      <h1>{currentUser.username}</h1>
+      <h1>{loggedIn && currentUser.username}</h1>
       <Link to={`/profile`}>Edit</Link>
       <Outlet />
     </main>
