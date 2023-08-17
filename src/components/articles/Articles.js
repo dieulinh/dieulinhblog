@@ -59,7 +59,7 @@ export default function Articles() {
 
           {articles.length > 0 && articles.map(article => (
 
-            <Link to={`/articles/${article.id}`} key={article.id}>
+            <Link to={`/articles/${article.slug||article.id}`} key={article.id}>
               {article.title}
             </Link>
           ))}
