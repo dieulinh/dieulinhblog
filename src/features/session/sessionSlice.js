@@ -1,27 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { clearUser } from '../auth/localStorage';
+
+export const logOut = () => {
+  return dispatch => {
+    clearUser()
+    dispatch(sessionSlice.actions.logOut())
+  }
+}
 
 export const sessionSlice = createSlice({
   name: 'session',
   initialState: {
-    user: {},
+    user: null,
     isLoggedIn: false
   },
   reducers: {
-    signUp: (state, action) => {
+    setCurrentUser: (state, action) => {
       state.user = action.payload;
       state.isLoggedIn = true;
     },
-    editUser: (state, action) => {
-      state.user = action.payload;
-    },
     logOut: (state, action) => {
-      state.user = {};
+      state.user = null;
       state.isLoggedIn = false;
     }
   }
 });
 
+export const { setCurrentUser } = sessionSlice.actions;
 export const selectCurrentUser = (state) => state.session.user;
 export const selectIsLoggedIn = (state) => state.session.isLoggedIn;
-export const { signUp, logOut, editUser } = sessionSlice.actions;
+
 export default sessionSlice.reducer;

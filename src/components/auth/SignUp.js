@@ -3,19 +3,19 @@ import { registerUser } from "../../features/auth/signupSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate, Link } from 'react-router-dom';
 
-export default function SignUp () {
+export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   // const [email, setEmail] = useState("");
   const dispatch = useDispatch();
 
-   // Grab the navigate function
+  // Grab the navigate function
   const navigate = useNavigate();
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(registerUser({email, password, password_confirmation: passwordConfirmation }));
+    dispatch(registerUser({ email, password, password_confirmation: passwordConfirmation }));
     navigate('/profile')
   }
 
@@ -34,8 +34,7 @@ export default function SignUp () {
           </div>
         </label>
         <label>
-            Password
-
+          Password
           <div>
             <input
               id="password"
@@ -46,16 +45,15 @@ export default function SignUp () {
           </div>
         </label>
         <label>
-
-        Password confirmation
-        <div>
+          Password confirmation
+          <div>
             <input
               id="password"
               value={passwordConfirmation}
               type="password"
               onChange={(e) => setPasswordConfirmation(e.currentTarget.value)}
             />
-        </div>
+          </div>
         </label>
         <button type="submit" className="primary">
           Sign Up

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { editUser } from "../features/session/sessionSlice";
+// import { editUser } from "../features/session/sessionSlice";
 import { useDispatch } from "react-redux";
 
 export default function EditProfileForm() {
@@ -8,7 +8,12 @@ export default function EditProfileForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(editUser({ username: username }));
+
+    // TODO: use edit user endpoint 
+    // call the setCurrentUser action in session/sessionSlice    
+    // or make an editUser action in session/sessionSlice
+    
+    // old way: dispatch(editUser({ username: username }));
   };
 
   return (

@@ -1,41 +1,34 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import { loginUser } from "../../features/auth/authSlice";
-import {selectIsLoggedIn, selectCurrentUser, isLoggedInHasError,isLoading } from "../../features/auth/authSlice";
-import {UserContext} from "../../context/UserContext";
+import { isLoggedInHasError, isLoading } from "../../features/auth/authSlice";
 import { useDispatch, useSelector } from "react-redux";
-import {Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { selectIsLoggedIn } from "../../features/session/sessionSlice";
 
-export default function Login () {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const user = useSelector(selectCurrentUser);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const authIsLoading = useSelector(isLoading)
   const hasError = useSelector(isLoggedInHasError)
-  const { currentUser, setCurrentUser } = useContext(UserContext);
 
   // Grab the navigate function
   const navigate = useNavigate();
-
   useEffect(() => {
-    if(!user) {
-      return;
-    }
-
-    if(user.token) {
-      setCurrentUser(user)
-      localStorage.setItem("user", JSON.stringify(user))
+    if (isLoggedIn) {
       navigate('/profile')
     }
-  }, [user])
+  }, [isLoggedIn])
+
   const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(loginUser({ email, password }));
+    e.preventDefault()
+    dispatch(loginUser({ email, password }))
   }
 
-  if(authIsLoading) {
-    return <p> Logging in</p>
+  if (authIsLoading) {
+    return <p>Logging in</p>
   }
 
   return (
@@ -58,6 +51,7 @@ export default function Login () {
           <input
             id="password" type="password"
             value={password}
+            autoComplete="on"
             onChange={(e) => setPassword(e.currentTarget.value)} />
         </label>
         <button type="submit" className="primary" onClick={handleSubmit}>

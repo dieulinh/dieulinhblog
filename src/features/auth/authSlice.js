@@ -1,9 +1,15 @@
 import axios from '../../utils/axiosConfig';
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import { storeUser } from './localStorage';
+import { setCurrentUser } from '../session/sessionSlice';
 
 export const loginUser = createAsyncThunk('auth/loginUser',
-  async ({email,password}, thunkAPI) => {
+  async ({email,password}, thunkAPI) => {    
     const data = await axios.post(`/api/login`,{email, password});
+
+    // if succeeds
+    storeUser(data.data)
+    thunkAPI.dispatch(setCurrentUser(data.data))
     return data;
   }
 )
@@ -12,7 +18,7 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState: {
     user: null,
-    isAuthenticated: false,
+    data: null,
     isLoading: false,
     hasError: false
   },
@@ -23,21 +29,19 @@ export const authSlice = createSlice({
         state.hasError = false;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
-        state.user = action.payload.data;
+        state.data = action.payload.data;
         state.hasError = false;
         state.isLoading = false
-
       })
       .addCase(loginUser.rejected, (state) => {
         state.hasError = true;
         state.isLoading = false;
-        state.user = null
+        state.data = null
       })
   }
 })
-export const selectCurrentUser = (state) => state.auth.user;
+
 export const isLoading = (state) => state.auth.isLoading;
 export const isLoggedInHasError = (state) => state.auth.hasError;
-export const selectIsLoggedIn = (state) => state.auth.isAuthenticated;
+
 export default authSlice.reducer;
-// export const { loginSuccess, loginFailed } = authSlice.actions;

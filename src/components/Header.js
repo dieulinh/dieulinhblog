@@ -1,19 +1,17 @@
 import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CurrentUser, UserContext } from "../context/UserContext";
-// import { selectCurrentUser, logOut } from "../features/session/sessionSlice"
+import { logOut } from "../features/session/sessionSlice"
 
 // Import the NavLink component.
 import { NavLink, Outlet } from 'react-router-dom';
 
-export default function Header() {
-  // const currentUser = useContext(CurrentUser)
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+export default function Header() {  
+  const { currentUser } = useContext(UserContext);
   const dispatch = useDispatch();
 
   const handleLogout = e => {
-    // dispatch(logOut())
-    console.log('Logout')
+    dispatch(logOut())
   }
 
   // Replace the 4 <a> tags with <NavLink> components
@@ -32,7 +30,7 @@ export default function Header() {
           (
             <div className={"right-nav-bar"}>
 
-              <NavLink to="/profile" className="btn user-btn">Profile</NavLink>
+              <NavLink to="/profile" className="btn user-btn">{currentUser.email}</NavLink>
               <button onClick={handleLogout} className="btn user-btn"> Log Out </button>
             </div>
           )
