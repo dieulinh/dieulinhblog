@@ -44,13 +44,7 @@ export default function BookMentor () {
     dispatch(loadMentor(mentorId));
   }, [dispatch, mentorId]);
 
-  useEffect(() => {
-    if(booking) return;
 
-    if (booking) {
-      closeModal()
-    }
-  }, [booking]);
   const handleHourChange = (event) => {
     setSlot(event.target.value);
   };
@@ -60,9 +54,8 @@ export default function BookMentor () {
   }, [date]);
   const handleBookEvent = (event) => {
     event.preventDefault()
-
     dispatch(bookMentor({mentorId, slot, date}));
-
+    closeModal()
   }
 
 
