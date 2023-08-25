@@ -2,8 +2,8 @@ import React, {useEffect, useContext, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { hasError, isLoadingCurrentMentor, loadMentor, selectCurrentMentor } from '../../features/mentors/mentor';
 import Loader from '../Loader.js';
-import { Link, useParams } from 'react-router-dom';
-import {UserContext} from '../../context/UserContext';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { UserContext } from '../../context/UserContext';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from "@fullcalendar/interaction"
@@ -26,10 +26,11 @@ const customStyles = {
 };
 Modal.setAppElement('#root');
 export default function BookMentor () {
-  const mentor = useSelector(selectCurrentMentor)
-  const booking = useSelector(selectCurrentBooking)
-  const error = useSelector(hasError)
-  const isLoading = useSelector(isLoadingCurrentMentor)
+  const navigate = useNavigate();
+  const mentor = useSelector(selectCurrentMentor);
+  const booking = useSelector(selectCurrentBooking);
+  const error = useSelector(hasError);
+  const isLoading = useSelector(isLoadingCurrentMentor);
   const mentorId = useParams().mentorId
   const dispatch = useDispatch();
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -46,6 +47,9 @@ export default function BookMentor () {
 
 
   const handleHourChange = (event) => {
+    if(!currentUser){
+      navigate('/login')
+    }
     setSlot(event.target.value);
   };
   useEffect(() => {
@@ -57,7 +61,6 @@ export default function BookMentor () {
     dispatch(bookMentor({mentorId, slot, date}));
     closeModal()
   }
-
 
   if (isLoading) {
     return (<Loader />)
