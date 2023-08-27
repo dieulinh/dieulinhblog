@@ -53,6 +53,10 @@ export default function Mentor () {
         <h1 className='mentor-title'>{firstName} {lastName}</h1>
         <div><p className='mentor-experience'>From: {address} {country}</p></div>
       </div>
+      <div className="mentor-posts pull-left">
+        { currentUser && currentUser.email && <Link to={`/mentors/${mentorId}/add_work`} className="btn">Add work</Link> }
+        <Link to={`/mentors/${mentorId}/book`} className="btn mentor-fxn">Schedule mentor</Link>
+      </div>
       { currentUser && currentUser.email && ( <Link to={`/mentors/${mentorId}/edit`}>Edit</Link>)}
       <div className='mentor-info'>
 
@@ -61,12 +65,6 @@ export default function Mentor () {
         <p className='mentor-email'>Email: {email}</p>
         <p className='mentor-phone'>Phone: {phone}</p>
         <p className='mentor-address'>Address: {address}</p>
-      </div>
-      <div>
-        <Link to={`/mentors/${mentorId}/message`}>Send a message</Link> to {firstName} {lastName}.
-      </div>
-      <div>
-        <Link to={`/mentors/${mentorId}/schedule`}>Schedule a meeting</Link> with {firstName} {lastName}.
       </div>
       {/* <div className="mentor-photo">                
         <img src="https://via.placeholder.com/300" alt="mentor" />
@@ -97,10 +95,7 @@ export default function Mentor () {
           ))}
 
       </div>
-      <div className="mentor-posts pull-left">
-        { currentUser && currentUser.email && <Link to={`/mentors/${mentorId}/add_work`} className="btn">Add work</Link> }
-        <Link to={`/mentors/${mentorId}`} className="btn mentor-fxn">Schedule mentor</Link>
-      </div>
+
       <div className='mentor-timeline'>
         {/* <p>Joined: {createdAt}</p> */}
         {/* <p>Updated at: {updatedAt}</p> */}

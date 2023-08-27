@@ -1,8 +1,10 @@
 body {
   font-family: "IBM Plex Sans",sans-serif;
+    font-weight: 100;
 }
-h1 {
+h1,h2,h3,h4,h5 {
     color: #24a599;
+    font-weight: 100;
 }
 input {
     line-height: 50px;
@@ -18,19 +20,6 @@ input {
     justify-content: flex-end;
 }
 
-
-.mentor-fxn {
-    background-color: #f7ede1;
-    line-height: 40px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 40px;
-    padding: 0 30px;
-    transition: .3s;
-    text-align: center;
-    color: #fff;
-}
 
 .btn-link {
     border: none;
@@ -97,13 +86,12 @@ form label {
     padding: 0 30px;
     transition: .3s;
     line-height: 35px;
-    color: #1bcad5;
+    color: #4b8d91;
+    background: #f0f8ff;
 }
-
 .user-btn {
     border: 1px solid #373737;
     color: #ef7f7f;
-    padding: 8px;
     border-radius: 5px;
 }
 .article-list {
@@ -113,6 +101,10 @@ form label {
 .bookingOverlayClass {
 
 }
+.flex-container {
+    display: flex;
+    flex-direction: column;
+}
 .Overlay {
     position: fixed;
     top: 0;
@@ -121,4 +113,32 @@ form label {
     bottom: 0;
     background-color: #4254667a;
     z-index: 100;
+}
+.mentor-fxn {
+    background-color: #e3f1c1;
+    line-height: 40px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 40px;
+    padding: 0 30px;
+    transition: .3s;
+    text-align: center;
+    color: #fff;
+}
+.left-side {
+    display: flex;
+    align-items: flex-end;
+}
+.half-screen {
+    display: flex;
+    width: 50%;
+}
+.profile-link {
+    color: #133023;
+}
+.flex-row-end {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
 }

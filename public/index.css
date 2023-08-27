@@ -30,7 +30,7 @@ a {
   align-items: center;
   justify-content: space-between;
 }
-.right-nav-bar,left-nav-bar {
+.left-nav-bar {
   display: flex;
 }
 main,

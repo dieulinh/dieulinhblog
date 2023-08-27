@@ -30,7 +30,7 @@ export default function Courses() {
   }
   return (
     <div>
-      <h1>Courses</h1>
+      <h3>Courses</h3>
 
       <div className="mentors">
         <ul className="mentors-list">

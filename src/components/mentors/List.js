@@ -33,7 +33,7 @@ export default function Mentors() {
   }
   return (
     <div>
-      <h1>Mentors</h1>
+      <h3>Mentors</h3>
         <MentorSearchForm />
       <div className="mentors">
         <ul className="mentors-list">

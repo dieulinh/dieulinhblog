@@ -22,7 +22,7 @@
     box-shadow: none;
     color: var(--color-text);
     border: none;
-    padding: 0;
+    padding-bottom: 15px;
     font-size: inherit;
     white-space: initial;
     box-shadow: none;
@@ -32,9 +32,7 @@
     background-color: transparent;
     width: 100%;
     height: 100%;
-    border: #17af9a solid 1px;
-    border-radius: 5px;
-
+    border-bottom: #eaefee solid 1px;
 }
 .mentors-list span {
     display: inline-block;

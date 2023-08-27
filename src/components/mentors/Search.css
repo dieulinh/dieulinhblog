@@ -20,4 +20,5 @@
 
 .mentor-search-form {
     margin-bottom: 2rem;
+    display: flex;
 }

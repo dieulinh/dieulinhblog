@@ -110,24 +110,29 @@ export default function BookMentor () {
         contentLabel="Example Modal"
         overlayClassName="Overlay"
       >
-        <button onClick={closeModal}>close</button>
-        <div>{date&&date.dateStr}</div>
-        <form>
-          <label htmlFor="hour-select">Select an Hour:</label>
-          <select id="hour-select" value={slot} onChange={handleHourChange}>
-            <option value="">Select</option>
-            {hours.map((hour) => (
-              <option key={hour} value={hour}>
-                {hour.toString().padStart(2, '0')}:00
-              </option>
-            ))}
-          </select>
-          {slot !== '' && (
-            <p>You selected: {slot.toString().padStart(2, '0')}:00</p>
-          )}
-          <button onClick={handleBookEvent}>Book</button>
+        <div className={"flex-container"}>
+          <div className={"flex-row-end"}>
+            <button className="left-side" onClick={closeModal}>close</button>
+          </div>
 
-        </form>
+          <div>{date&&date.dateStr}</div>
+          <form>
+            <label htmlFor="hour-select">Select an Hour:</label>
+            <select id="hour-select" value={slot} onChange={handleHourChange}>
+              <option value="">Select</option>
+              {hours.map((hour) => (
+                <option key={hour} value={hour}>
+                  {hour.toString().padStart(2, '0')}:00
+                </option>
+              ))}
+            </select>
+            {slot !== '' && (
+              <p>You selected: {slot.toString().padStart(2, '0')}:00</p>
+            )}
+            <button onClick={handleBookEvent}>Book</button>
+
+          </form>
+        </div>
       </Modal>
       { showMentorEvent && <BookingPopup />}
 

@@ -46,7 +46,7 @@ export default function AddWork() {
 
   return (
     <div>
-      <h2>Send Message</h2>
+      <h2>Add work experience</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>
