@@ -1,6 +1,8 @@
 body {
-  font-family: "IBM Plex Sans",sans-serif;
+    font-family: "IBM Plex Sans",sans-serif;
     font-weight: 100;
+    letter-spacing: 1.1px;
+    line-height: 2.1;
 }
 h1,h2,h3,h4,h5 {
     color: #24a599;
@@ -124,7 +126,7 @@ form label {
     padding: 0 30px;
     transition: .3s;
     text-align: center;
-    color: #fff;
+    color: #15301c;
 }
 .left-side {
     display: flex;
@@ -136,9 +138,13 @@ form label {
 }
 .profile-link {
     color: #133023;
+    border-bottom: 1px solid #df3e3e;
 }
 .flex-row-end {
     display: flex;
     width: 100%;
     justify-content: flex-end;
+}
+.header {
+    background: linear-gradient(94.99deg,rgb(223 249 239 / 80%) 0,rgb(211 201 223 / 80%) 100%);
 }

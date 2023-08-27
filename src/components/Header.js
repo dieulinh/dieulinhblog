@@ -17,10 +17,11 @@ export default function Header() {
   return (
     <div className="header">
       <div className={"left-nav-bar"}>
-        <img src="logo192.png" height={70} alt="" />
-        <NavLink to="/articles">Articles</NavLink>
+        <NavLink to="/" height={70} alt="">iMentor</NavLink>
+
         <NavLink to="/mentors">Mentors</NavLink>
         <NavLink to="/courses">Courses</NavLink>
+        <NavLink to="/articles">Articles</NavLink>
       </div>
       <div className={"right-nav-bar"}>
         {

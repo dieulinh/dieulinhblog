@@ -1,11 +1,9 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import axios from '../../utils/axiosConfig';
 export const loadCurrentArticle = createAsyncThunk(
   'currentArticle/loadCurrentArticle',
   async (articleId) => {
-    console.log(articleId)
-    const data = await axios(`https://myclassr00m.herokuapp.com/api/articles/${articleId}`);
-
+    const data = await axios(`/api/articles/${articleId}`);
     return data;
   }
 );

@@ -20,6 +20,9 @@ instance.interceptors.request.use(
     (error) => {
         // Handle request errors
         console.error('Request Error:', error);
+        if (localStorage.getItem("user")) {
+          localStorage.removeItem("user")
+        }
         return Promise.reject(error);
     }
 );

@@ -10,13 +10,6 @@ import Search from "./Search";
 import { Link, useLocation, useParams } from "react-router-dom";
 import Loader from "../Loader";
 
-// Import Link and useSearchParams from React Router
-// const loadArticles = async () => {
-//     const response = await axios(`https://myclassr00m.herokuapp.com/api/articles`);
-//
-//     return response.data;
-// }
-
 export default function Articles() {
   const dispatch = useDispatch();
   const location = useLocation();
