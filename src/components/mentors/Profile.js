@@ -44,9 +44,9 @@ export default function Mentor () {
     experienceYears,
     bio,
     country,
-    works
+    works,
+    gallery_images
   } = mentor
-
   return (
     <div className='mentor-container'>
       <div className={"short-desc"}>
@@ -55,6 +55,7 @@ export default function Mentor () {
       </div>
       <div className="mentor-posts pull-left">
         { currentUser && currentUser.email && <Link to={`/mentors/${mentorId}/add_work`} className="btn">Add work</Link> }
+        { currentUser && currentUser.email && <Link to={`/mentors/${mentorId}/add_gallery`} className="btn">Add gallery</Link> }
         <Link to={`/mentors/${mentorId}/book`} className="btn mentor-fxn">Schedule mentor</Link>
       </div>
       { currentUser && currentUser.email && ( <Link to={`/mentors/${mentorId}/edit`}>Edit</Link>)}
@@ -94,6 +95,12 @@ export default function Mentor () {
 
           ))}
 
+      </div>
+      <h3> Previous work gallery</h3>
+      <div className={"gallery-work"}>
+        { gallery_images.length && gallery_images.map((image,idx) => (
+            <img src={image.web.url} />
+        ))}
       </div>
 
       <div className='mentor-timeline'>

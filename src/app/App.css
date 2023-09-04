@@ -147,3 +147,34 @@ form label {
 .header {
     background: linear-gradient(94.99deg,rgb(223 249 239 / 80%) 0,rgb(211 201 223 / 80%) 100%);
 }
+.introduction {
+    background-color: #1b6e87;;
+    border-radius: 0 0 53% 47%/0 0 14% 7%;
+    font-size: 2rem;
+    color: #fff;
+    padding: 0px 10px 10px 20px;
+}
+.secondary-highlight {
+    border-radius: 10px / 30px;
+    background: #2db546;
+    color: #fff;
+    color: #fff;
+    padding-left: 20px;
+    font-size: 31px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+.hero {
+    color: #e3e167;
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+.gallery {
+    display: flex;
+}
+.gallery-work {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 10px;
+    column-gap: 20px;
+}

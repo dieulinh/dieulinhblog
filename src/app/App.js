@@ -9,7 +9,7 @@ import MentorProfile from "../components/mentors/Profile";
 import BookMentor from "../components/bookings/BookMentor";
 import MyBookings from "../components/bookings/MyBookings";
 import AddWork from "../components/AddWork";
-
+import AddGallery from "../components/AddGallery";
 import Articles from "../components/articles/Articles";
 import Categories from "../components/articles/Categories";
 import Category from "../components/articles/Category";
@@ -45,6 +45,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/mentors' element={<Mentors />} />
     <Route path='/mentors/:mentorId' element={<MentorProfile />} />
     <Route path='/mentors/:mentorId/add_work' element={<AddWork />} />
+    <Route path='/mentors/:mentorId/add_gallery' element={<AddGallery />} />
     <Route path='/mentors/:mentorId/book' element={<BookMentor />} />
     <Route path='/mybookings' element={<MyBookings />} />
     <Route path='/mentors/:mentorId/edit' element={<EditMentorForm />} />

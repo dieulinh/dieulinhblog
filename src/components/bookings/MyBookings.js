@@ -35,13 +35,15 @@ export default function MyBookings() {
   return (
     <>
       <h3>My Bookings</h3>
+      <ul>
       { bookings && bookings.map(booking => (
-        <div key={booking.id}>
-          {booking.slot} <br />
-          {booking.booking_date} {booking.mentor_id}
-        </div>
-      )
+          <li key={booking.id}>
+            <span>Time: {booking.slot} : 00</span><br />
+            Date: {booking.booking_date} {booking.mentor.first_name}
+          </li>
+        )
       )}
+      </ul>
     </>
   )
 }
