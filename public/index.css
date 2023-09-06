@@ -33,16 +33,17 @@ a {
 .left-nav-bar {
   display: flex;
 }
-main,
-.header,
+main,.header,
 footer {
-  padding: 37px 60px;
+  padding: 64px 92px;
   max-width: 1200px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
-
+.header {
+  height: 100%;
+}
 
 main,
 footer {
@@ -51,8 +52,7 @@ footer {
 }
 
 main {
-  padding: 20px 30px;
-  margin: 10px auto;
+  margin: 100px auto;
 }
 
 #root {

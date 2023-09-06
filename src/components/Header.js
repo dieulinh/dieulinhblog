@@ -16,27 +16,29 @@ export default function Header() {
   // Replace the 4 <a> tags with <NavLink> components
   return (
     <div className="header">
-      <div className={"left-nav-bar"}>
-        <NavLink to="/" height={70} alt="">iMentor</NavLink>
-
-        <NavLink to="/mentors">Mentors</NavLink>
-        <NavLink to="/courses">Courses</NavLink>
-        <NavLink to="/articles">Articles</NavLink>
+      <div className={"brand"}>
+        <div className={"left-nav-bar"}>
+          <NavLink to="/" height={70} alt="">iMentor</NavLink>
+          <NavLink to="/mentors">Mentors</NavLink>
+          <NavLink to="/courses">Courses</NavLink>
+          <NavLink to="/articles">Articles</NavLink>
+        </div>
+        <div className={"right-nav-bar"}>
+          {
+            currentUser && currentUser.email
+              ?
+              (
+                <>
+                  <NavLink to="/profile" className="profile-link">profile</NavLink>
+                  <NavLink to="/mybookings" className="profile-link">my bookings</NavLink>
+                  <button onClick={handleLogout} className="btn user-btn"> Log Out </button>
+                </>
+              )
+              : <NavLink to="/login" className="user-btn">Login</NavLink>
+          }
+        </div>
       </div>
-      <div className={"right-nav-bar"}>
-        {
-          currentUser && currentUser.email
-            ?
-            (
-              <>
-                <NavLink to="/profile" className="profile-link">profile</NavLink>
-                <NavLink to="/mybookings" className="profile-link">my bookings</NavLink>
-                <button onClick={handleLogout} className="btn user-btn"> Log Out </button>
-              </>
-            )
-            : <NavLink to="/login" className="user-btn">Login</NavLink>
-        }
-      </div>
+       <NavLink to="/signup-mentor" className={"btn signup-mentor"}>Become a mentor</NavLink>
     </div>
   )
 }

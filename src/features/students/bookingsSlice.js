@@ -34,7 +34,7 @@ export const bookingsSlice = createSlice({
       })
   }
 });
-export const selectStudentBookings = (state) => state.bookings.bookings;
+export const selectBookings = (state) => state.bookings.bookings;
 export const isLoadingBookings = (state) => state.bookings.isLoadingBookings;
 
 

@@ -17,6 +17,7 @@ import Author from "../components/articles/Author";
 import Profile from "../components/Profile";
 import EditProfileForm from "../components/EditProfile";
 import EditMentorForm from "../components/mentors/EditForm";
+import SignupForm from "../components/mentors/SignupForm";
 import Root from "../components/Root";
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
@@ -33,6 +34,7 @@ const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Root />}>
     <Route path='/' element={<Landing />} />
     <Route path='/about' element={<About />} />
+    <Route path='/signup-mentor' element={<SignupForm />} />
     <Route path='/authors/:name' element={<Author />} />
     <Route path='/articles' element={<Articles />} />
     <Route path='/courses' element={<Courses />} />
