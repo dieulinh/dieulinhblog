@@ -17,6 +17,7 @@ import Author from "../components/articles/Author";
 import Profile from "../components/Profile";
 import EditProfileForm from "../components/EditProfile";
 import EditMentorForm from "../components/mentors/EditForm";
+import EditMentorProfile from "../components/mentors/EditProfile";
 import SignupForm from "../components/mentors/SignupForm";
 import Root from "../components/Root";
 import { LocalizationProvider } from '@mui/x-date-pickers';
@@ -45,6 +46,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     </Route>
     <Route path='/login' element={<Login />} />
     <Route path='/mentors' element={<Mentors />} />
+    <Route path='/profile' element={<EditMentorProfile />} />
     <Route path='/mentors/:mentorId' element={<MentorProfile />} />
     <Route path='/mentors/:mentorId/add_work' element={<AddWork />} />
     <Route path='/mentors/:mentorId/add_gallery' element={<AddGallery />} />
@@ -54,7 +56,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/mentors/:mentorId/schedule' element={<ScheduleLesson />} />
     <Route path='/mentors/:mentorId/message' element={<SendMessage />} />
 
-    <Route path='/profile' element={<Profile />}>
+    <Route path='/profile1' element={<Profile />}>
       <Route path="edit" element={<EditProfileForm />}>
       </Route>
     </Route>
