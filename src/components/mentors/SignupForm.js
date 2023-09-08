@@ -34,7 +34,7 @@ export default function SignupForm() {
 
   return (
     <div className='mentor-container'>
-      <h1 className='mentor-title'>Update</h1>
+      <h1 className='mentor-title'>Sign Up as Mentor</h1>
       <div>
         <label>
           first name

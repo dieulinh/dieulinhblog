@@ -6,6 +6,7 @@ import Mentors from "../components/mentors/List";
 import Courses from "../components/courses/List";
 import Course from "../components/courses/Course";
 import MentorProfile from "../components/mentors/Profile";
+import EditProfileForm from "../components/mentors/EditProfileForm";
 import BookMentor from "../components/bookings/BookMentor";
 import MyBookings from "../components/bookings/MyBookings";
 import AddWork from "../components/AddWork";
@@ -15,9 +16,9 @@ import Categories from "../components/articles/Categories";
 import Category from "../components/articles/Category";
 import Author from "../components/articles/Author";
 import Profile from "../components/Profile";
-import EditProfileForm from "../components/EditProfile";
+
 import EditMentorForm from "../components/mentors/EditForm";
-import EditMentorProfile from "../components/mentors/EditProfile";
+
 import SignupForm from "../components/mentors/SignupForm";
 import Root from "../components/Root";
 import { LocalizationProvider } from '@mui/x-date-pickers';
@@ -46,7 +47,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     </Route>
     <Route path='/login' element={<Login />} />
     <Route path='/mentors' element={<Mentors />} />
-    <Route path='/profile' element={<EditMentorProfile />} />
+    <Route path='/profile' element={<EditProfileForm />} />
     <Route path='/mentors/:mentorId' element={<MentorProfile />} />
     <Route path='/mentors/:mentorId/add_work' element={<AddWork />} />
     <Route path='/mentors/:mentorId/add_gallery' element={<AddGallery />} />
@@ -57,8 +58,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/mentors/:mentorId/message' element={<SendMessage />} />
 
     <Route path='/profile1' element={<Profile />}>
-      <Route path="edit" element={<EditProfileForm />}>
-      </Route>
+
     </Route>
     <Route path='/sign-up' element={<SignUp />} />
   </Route>)

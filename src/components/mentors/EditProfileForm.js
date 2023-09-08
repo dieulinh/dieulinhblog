@@ -1,27 +1,25 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useNavigate } from "react-router-dom";
-import { hasError, isLoadingCurrentMentor, selectCurrentMentor, loadMentor } from '../../features/mentors/mentor';
 
-import {isUpdating, selectMentor, updateMentor} from '../../features/currentMentor/editMentorSlice';
-import {UserContext} from '../../context/UserContext'
+import { UserContext } from '../../context/UserContext'
 import { CountryDropdown } from 'react-country-region-selector'
-export default function EditMentorForm() {
-  const navigate = useNavigate()
+import { loadUserMentor, isLoading, selectMentor} from "../../features/mentors/userMentorSlice";
+export default function EditProfileForm() {
   const dispatch = useDispatch();
-  const mentor = useSelector(selectCurrentMentor)
-  const isLoadingMentor = useSelector(isLoadingCurrentMentor);
-  const mentorId = useParams().mentorId;
+  const mentor = useSelector(selectMentor)
+  const isLoadingMentor = useSelector(isLoading);
+
   const { currentUser, setCurrentUser } = useContext(UserContext);
 
   const [formData, setFormData] = useState({});
+
   useEffect(() => {
-    dispatch(loadMentor(mentorId));
-  }, [dispatch, mentorId])
-  useEffect(() => {
-    if(!mentor) return;
-    setFormData(mentor)
-  }, [mentor])
+    if(!currentUser) return;
+    console.log('user___', currentUser)
+    dispatch(loadUserMentor())
+  }, [currentUser, dispatch])
+
   const handleChange = (evt) => {
     const { name, value } = evt.target;
     setFormData(f => ({
@@ -36,14 +34,16 @@ export default function EditMentorForm() {
     }));
   }
   const handleUpdateMentor = () => {
-    dispatch(updateMentor(formData))
-    navigate(`/mentors/${mentorId}`)
+    // dispatch(updateMentor(formData))
+    // navigate(`/mentors/${mentorId}`)
   }
 
   if (isLoadingMentor) {
     return <p>Loading data</p>
   }
-
+  if (!mentor) {
+    return
+  }
   return (
     <div className='mentor-container'>
       <h1 className='mentor-title'>Update</h1>
@@ -54,7 +54,7 @@ export default function EditMentorForm() {
             <input
               id="first_name"
               name="firstName"
-              value={formData.firstName}
+              value={mentor.first_name}
               onChange={handleChange}
             />
           </div>
@@ -65,7 +65,7 @@ export default function EditMentorForm() {
             <input
               id="lastName"
               name="lastName"
-              value={formData.lastName}
+              value={mentor.last_name}
               onChange={handleChange}
             />
           </div>
@@ -76,7 +76,7 @@ export default function EditMentorForm() {
             <input
               id="phone"
               name={"phone"}
-              value={formData.phone}
+              value={mentor.phone}
               onChange={handleChange}
             />
           </div>
@@ -87,7 +87,7 @@ export default function EditMentorForm() {
             <input
               id="specialization"
               name={"specialization"}
-              value={formData.specialization}
+              value={mentor.specialization}
               onChange={handleChange}
             />
           </div>
@@ -98,7 +98,7 @@ export default function EditMentorForm() {
             <input
               id="hourly_rate"
               name={"hourly_rate"}
-              value={formData.hourlyRate}
+              value={mentor.hourly_rate}
               onChange={handleChange}
             />
           </div>
@@ -109,7 +109,7 @@ export default function EditMentorForm() {
             <input
               id="bio"
               name={"bio"}
-              value={formData.bio}
+              value={mentor.bio}
               onChange={handleChange}
             />
           </div>
@@ -120,7 +120,7 @@ export default function EditMentorForm() {
             <input
               id="experienceYears"
               name={"experienceYears"}
-              value={formData.experienceYears}
+              value={mentor.experience_years}
               onChange={handleChange}
             />
           </div>
@@ -131,7 +131,7 @@ export default function EditMentorForm() {
             <CountryDropdown
               classes='country-dropdown'
               defaultOptionLabel="Any Country"
-              value={formData.country}
+              value={mentor.country}
               name={"country"}
               valueType='short'
               onChange={handleCountry} />
@@ -143,7 +143,7 @@ export default function EditMentorForm() {
             <input
               id="email"
               name={"email"}
-              value={formData.email}
+              value={mentor.email}
               onChange={handleChange}
             />
             <button className="primary" onClick={handleUpdateMentor}>Update</button>
