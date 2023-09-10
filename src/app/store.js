@@ -10,6 +10,7 @@ import authReducer from '../features/auth/authSlice';
 import signupReducer from '../features/auth/signupSlice';
 import editMentorReducer from '../features/currentMentor/editMentorSlice';
 import signupMentorReducer from '../features/mentors/signupMentorSlice';
+import updateMentorReducer from '../features/mentors/updateMentorSlice';
 import userMentorReducer from '../features/mentors/userMentorSlice';
 
 
@@ -26,6 +27,7 @@ export const store = configureStore({
     registerReducer: signupReducer,
     editMentor: editMentorReducer,
     signupMentor: signupMentorReducer,
-    userMentor: userMentorReducer
+    userMentor: userMentorReducer,
+    updateMentor: updateMentorReducer
   },
 });

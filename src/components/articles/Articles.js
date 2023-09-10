@@ -43,25 +43,22 @@ export default function Articles() {
   }
   return (
     <div>
+      <h3>Articles</h3>
 
-      {selectedArticle && (<Article article={selectedArticle} />)}
-      <section>
-        <h1>Articles</h1>
+      <div>
+        {selectedArticle && (<Article article={selectedArticle} />)}
+        <section>
+          <div className="article-list">
+            {articles.length > 0 && articles.map(article => (
+              <Link to={`/articles/${article.slug||article.id}`} key={article.id}>
+                {article.title}
+              </Link>
+            ))}
+          </div>
 
-        <div className="article-list">
-
-          {articles.length > 0 && articles.map(article => (
-
-            <Link to={`/articles/${article.slug||article.id}`} key={article.id}>
-              {article.title}
-            </Link>
-          ))}
-        </div>
-
+        </section>
         <Search />
-
-      </section>
-
+      </div>
     </div>
   )
 }

@@ -6,7 +6,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 
 export default function AddWork() {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [message, setMessage] = useState('');
   const [formData, setFormData] = useState({})

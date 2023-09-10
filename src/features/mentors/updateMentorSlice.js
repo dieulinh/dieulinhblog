@@ -3,13 +3,13 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const updateMentor = createAsyncThunk('currentMentor/update',
   async (mentor, thunkAPI) => {
-    const response = await axios.put(`/api/mentors/${mentor.id}`, mentor);
+    const response = await axios.post(`/api/mentors/update_mentor`, mentor);
     return response.data;
   }
 )
 
-export const editMentorSlice = createSlice({
-  name: 'currentMentor',
+export const updateMentorSlice = createSlice({
+  name: 'updateMentor',
   initialState: {
     mentor: null,
     isLoading: false,
@@ -33,7 +33,7 @@ export const editMentorSlice = createSlice({
       })
   }
 })
-export const selectMentor = (state) => state.currentMentor.mentor;
-export const isUpdating = (state) => state.currentMentor.isLoading;
-export const updateHasError = (state) => state.currentMentor.hasError;
-export default editMentorSlice.reducer;
+export const selectMentor = (state) => state.updateMentor.mentor;
+export const isUpdating = (state) => state.updateMentor.isLoading;
+export const updateHasError = (state) => state.updateMentor.hasError;
+export default updateMentorSlice.reducer;
