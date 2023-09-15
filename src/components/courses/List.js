@@ -40,9 +40,7 @@ export default function Courses() {
                 <div>{course.course_name}</div>
               </Link>
               <div>
-                <span>Teaches {course.created_at || "n/a"} </span>
-                <span>Experience: {course.experience_years}</span>
-                <span>Country: {course.country}</span>
+                <span> {course.created_at || "n/a"} </span>
               </div>
             </li>
           ))}
