@@ -145,14 +145,15 @@ form label {
     justify-content: flex-end;
 }
 .header {
-    background: linear-gradient(94.99deg,#c1a2dd 0,rgb(211 201 223 / 80%) 100%);
+    /*background: linear-gradient(94.99deg,#c1a2dd 0,rgb(211 201 223 / 80%) 100%);*/
 }
 .left-nav-bar a {
     color: #0b4758;
 }
 .left-nav-bar  a:first-child {
-    color: #e4eaf1;
+    color: #418ee7;
     font-size: 36px;
+    padding: 10px;
 }
 .introduction {
     background-color: #1b6e87;;
@@ -160,6 +161,13 @@ form label {
     font-size: 2rem;
     color: #fff;
     padding: 0px 10px 10px 20px;
+}
+.highlight-title {
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+    justify-content: center;
+    text-align: center;
 }
 .secondary-highlight {
     border-radius: 10px / 30px;

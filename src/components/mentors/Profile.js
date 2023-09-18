@@ -99,7 +99,7 @@ export default function Mentor () {
       <h3> Previous work gallery</h3>
       <div className={"gallery-work"}>
         { gallery_images.length && gallery_images.map((image,idx) => (
-            <img src={image.web.url} />
+            <img src={image.web.url} key={idx}/>
         ))}
       </div>
 
