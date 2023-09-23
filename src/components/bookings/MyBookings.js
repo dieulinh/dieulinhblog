@@ -20,10 +20,24 @@ export default function MyBookings() {
   const dispatch = useDispatch();
   const { currentUser, setCurrentUser } = useContext(UserContext);
   const [bookedEvents, setBookedEvents] = useState();
-  const handleDateClick = (e) => {
-    console.log(e)
-  };
-
+  const [eventInfoEvents, setEventInfoEvents] = useState();
+  // const handleDateClick = (e) => {
+  //   console.log(e)
+  // };
+  const handleEventClk = (info) => {
+    info.jsEvent.preventDefault(); // don't let the browser navigate
+    if (info.event.url) {
+      window.open(info.event.url);
+    }
+  }
+  const renderEventContent = (eventInfo) => {
+    return (
+      <>
+        <b>{eventInfo.timeText}</b>
+        <i>{eventInfo.event.title}</i>
+      </>
+    )
+  }
 
   useEffect(() => {
     if (!currentUser) {
@@ -38,7 +52,7 @@ export default function MyBookings() {
     }
 
     setBookedEvents(bookings.map(book => {
-      return {title: book.mentor.first_name, date:  book.booking_date }
+      return {title: book.mentor.first_name, date:  book.booking_date, interactive: true, color: 'red', url: `/mentors/${book.mentor.id}`}
     }))
 
   }, [bookings]);
@@ -50,7 +64,14 @@ export default function MyBookings() {
   return (
     <>
       <h3>My Bookings</h3>
+      {bookings.length && <FullCalendar
+        timeZone={"UTC"}
+        plugins={[ dayGridPlugin, interactionPlugin, momentTimezonePlugin]}
+        initialView="dayGridMonth"
 
+        events={bookedEvents}
+        eventClick={handleEventClk}
+      />}
       <ul>
       { bookings && bookings.map(booking => (
           <li key={booking.id}>
@@ -61,13 +82,7 @@ export default function MyBookings() {
       )}
 
       </ul>
-      {bookings.length && <FullCalendar
-        timeZone={"UTC"}
-        plugins={[ dayGridPlugin, interactionPlugin, momentTimezonePlugin]}
-        initialView="dayGridMonth"
-        dateClick={handleDateClick}
-        events={bookedEvents}
-      />}
+
 
     </>
   )
