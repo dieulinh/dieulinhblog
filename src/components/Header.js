@@ -18,7 +18,7 @@ export default function Header() {
     <div className="header">
       <div className={"brand"}>
         <div className={"left-nav-bar"}>
-          <NavLink to="/" height={70} alt="">iMentor</NavLink>
+          <NavLink to="/" height={70} alt="">i-Work</NavLink>
           <NavLink to="/mentors">Mentors</NavLink>
           <NavLink to="/courses">Courses</NavLink>
           <NavLink to="/articles">Articles</NavLink>
