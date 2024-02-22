@@ -8,7 +8,6 @@ import {
 } from '../../features/mentors/search-form'
 import { useNavigate } from 'react-router-dom'
 import { CountryDropdown } from 'react-country-region-selector'
-import './Search.css'
 
 function MentorSearchForm() {
   const dispatch = useDispatch()

@@ -36,24 +36,32 @@ export default function Login() {
       <h1>Login</h1>
       <form>
         {hasError && (<p>Wrong email or password</p>)}
-        <label>
-          Username
-          <div>
-            <input
-              id="username"
-              value={email}
-              onChange={(e) => setEmail(e.currentTarget.value)}
-            />
-          </div>
-        </label>
-        <label>
-          Password
-          <input
-            id="password" type="password"
-            value={password}
-            autoComplete="on"
-            onChange={(e) => setPassword(e.currentTarget.value)} />
-        </label>
+        <div className="form-group">
+          <label>
+            Username
+            <div>
+              <input
+                id="username"
+                value={email}
+                onChange={(e) => setEmail(e.currentTarget.value)}
+              />
+            </div>
+          </label>
+        </div>
+        
+        <div className="form-group">
+          <label>
+            Password
+            <div>
+              <input
+                id="password" type="password"
+                value={password}
+                autoComplete="on"
+                onChange={(e) => setPassword(e.currentTarget.value)} />
+            </div>
+            
+          </label>
+        </div>
         <button type="submit" className="primary" onClick={handleSubmit}>
           Log In
         </button>
