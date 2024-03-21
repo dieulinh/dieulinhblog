@@ -15,7 +15,6 @@ export default function Mentors() {
 
   // use search reducer
   
-
   const isLoading = useSelector(isLoadingMentors);
   const mentors = useSelector(selectMentors);
 
@@ -33,8 +32,8 @@ export default function Mentors() {
   }
   return (
     <div>
-      <h3>Mentors</h3>
-        <MentorSearchForm />
+      <h3 className="righ-header-3">Mentors</h3>
+      <MentorSearchForm />
       <div className="mentors">
         <ul className="mentors-list">
           {mentors.map(mentor => (
@@ -43,8 +42,9 @@ export default function Mentors() {
                 <div>{mentor.first_name} {mentor.last_name}</div>
               </Link>
               <div>
-                <span>Teaches {mentor.specialization || "n/a"} </span>
-                <span>Experience: {mentor.experience_years}</span>
+                <div> <span>Teaches {mentor.specialization || "n/a"} </span>
+                <span>Experience: {mentor.experience_years}</span></div>
+               
                 <span>Country: {mentor.country}</span>
               </div>
             </li>

@@ -3,7 +3,7 @@ import About from "../components/About";
 import SignUp from "../components/auth/SignUp";
 import Login from "../components/auth/Login";
 import Mentors from "../components/mentors/List";
-import Courses from "../components/courses/List";
+import Courses from "../components/courses/Courses";
 import Course from "../components/courses/Course";
 import MentorProfile from "../components/mentors/Profile";
 import EditProfileForm from "../components/mentors/EditProfileForm";
@@ -31,6 +31,8 @@ import "./App.css";
 import Landing from "../components/Landing";
 import ScheduleLesson from "../components/mentors/ScheduleLesson";
 import SendMessage from "../components/mentors/SendMessage";
+import SuccessPayment from "../components/courses/SuccessPayment";
+import Mycourses from "../features/courses/mycourses";
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Root />}>
@@ -56,20 +58,24 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/mentors/:mentorId/edit' element={<EditMentorForm />} />
     <Route path='/mentors/:mentorId/schedule' element={<ScheduleLesson />} />
     <Route path='/mentors/:mentorId/message' element={<SendMessage />} />
-
-    <Route path='/profile1' element={<Profile />}>
-
+    <Route path='/mycourses' element={<Courses />}></Route>
+    <Route path='/profile1' element={<Profile />}></Route>
+    <Route path='/signup_success/:courseId' element={<SuccessPayment />}>
     </Route>
     <Route path='/sign-up' element={<SignUp />} />
+   
   </Route>)
 );
 
 
 function App() {
+
   return (
     <CurrentUser>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
+        
         <RouterProvider router={router}></RouterProvider>
+      
       </LocalizationProvider>
     </CurrentUser>
   );

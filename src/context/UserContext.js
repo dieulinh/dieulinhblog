@@ -7,6 +7,7 @@ export const UserContext = React.createContext();
 
 export const CurrentUser = ({ children }) => {
   let [currentUser, setCurrentUser] = useState(null);
+  let [currentMentorId, setCurrentMentorId] = useState(null);
 
   const user = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ export const CurrentUser = ({ children }) => {
   useEffect(() => {
     if (user && user.email) {
       setCurrentUser(user)
+      setCurrentMentorId(user.mentor_id);
       return
     }
 
@@ -26,7 +28,7 @@ export const CurrentUser = ({ children }) => {
   }, [user])
 
   return (
-    <UserContext.Provider value={{ currentUser }}>
+    <UserContext.Provider value={{ currentUser, currentMentorId }}>
       {children}
     </UserContext.Provider>
   );

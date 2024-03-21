@@ -1,9 +1,11 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
 import list from "./list";
-import course from "./course";
+import currentCourse from "./course";
+import myCourses from "./mycourses";
 
 export default combineReducers({
   list,
-  course
+  currentCourse,
+  myCourses
 })

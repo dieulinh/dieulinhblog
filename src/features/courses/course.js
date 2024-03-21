@@ -1,17 +1,17 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from '../../utils/axiosConfig';
+import axios from 'axios';
 export const loadCourse = createAsyncThunk(
-  'courses/course',
+  'courses/currentCourse/load',
   async (courseId) => {
     const data = await axios(`/api/courses/${courseId}/details`);
     return data.data;
   }
 );
 
-export const courseSlice = createSlice({
-  name: 'courses/course',
+export const currentCourseSlice = createSlice({
+  name: 'courses/currentCourse',
   initialState: {
-    course: null,
+    currentCourse: null,
     isLoadingCurrentCourse: false,
     hasError: false,
   },
@@ -19,23 +19,23 @@ export const courseSlice = createSlice({
     builder
       .addCase(loadCourse.pending, (state) => {
         state.isLoadingCurrentCourse = true;
-        state.course = null;
+        state.currentCourse = null;
         state.hasError = false;
       })
       .addCase(loadCourse.fulfilled, (state, action) => {
-        state.course = action.payload.course;
+        state.currentCourse = action.payload.course;
         state.hasError = false;
         state.isLoadingCurrentCourse = false
       })
       .addCase(loadCourse.rejected, (state) => {
         state.hasError = true;
         state.isLoadingCurrentCourse = false;
-        state.course = null
+        state.currentCourse = null
       })
   }
 });
-export const selectCurrentCourse = (state) => state.courses.course.course;
-export const isLoadingCurrentCourse = (state) => state.courses.course.isLoadingCurrentCourse;
-export const hasError = (state) => state.courses.course.hasError;
+export const selectCurrentCourse = (state) => state.courses.currentCourse.currentCourse;
+export const isLoadingCurrentCourse = (state) => state.courses.currentCourse.isLoadingCurrentCourse;
+export const hasError = (state) => state.courses.currentCourse.hasError;
 
-export default courseSlice.reducer;
+export default currentCourseSlice.reducer;

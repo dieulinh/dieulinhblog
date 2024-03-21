@@ -1,15 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { hasError, selectCourses, loadCourses, isLoadingCourses } from "../../features/courses/list";
+import { hasError, selectCourses, loadMyCourses, isLoadingCourses } from "../../features/courses/mycourses";
 import { Link, useLocation } from "react-router-dom";
 
 import Loader from "../Loader";
+import { UserContext } from "../../context/UserContext";
+
 
 export default function Courses() {
   const dispatch = useDispatch();
 
   // use search reducer
+  const { currentUser }  = useContext(UserContext)
 
   const isLoading = useSelector(isLoadingCourses);
   const courses = useSelector(selectCourses);
@@ -19,8 +22,13 @@ export default function Courses() {
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
-    dispatch(loadCourses(queryParams));
-  }, [dispatch, location]);
+    console.log(currentUser)
+    if (!currentUser) return;
+    queryParams.append('user_id', currentUser.user_id); 
+    console.log(queryParams)
+    
+    dispatch(loadMyCourses(queryParams));
+  }, [dispatch,currentUser]);
 
 
   if (isLoading) {

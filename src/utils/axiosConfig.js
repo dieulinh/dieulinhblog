@@ -20,25 +20,32 @@ instance.interceptors.request.use(
     (error) => {
         // Handle request errors
         console.error('Request Error:', error);
-        if (localStorage.getItem("user")) {
-          localStorage.removeItem("user")
-        }
+        // if (localStorage.getItem("user")) {
+        //   localStorage.removeItem("user")
+        //   window.location.replace('/login');
+        // }
         return Promise.reject(error);
     }
 );
 
 // Add a response interceptor
-// instance.interceptors.response.use(
-//     (response) => {
-//         // Modify the response data if needed
-//         console.log('Response Interceptor');
-//         return response;
-//     },
-//     (error) => {
-//         // Handle response errors
-//         console.error('Response Error:', error);
-//         return Promise.reject(error);
-//     }
-// );
+instance.interceptors.response.use(
+    (response) => {
+        // Modify the response data if needed
+        console.log('Response Interceptor');
+        return response;
+    },
+    (error) => {
+        // Handle response errors
+        console.error('Response Error:', error);
+        if ((error.response && error.response.status === 401) ||(error.response.status == 500 &&error.response.data.error == 'Signature has expired')) {
+          // Clear the user's authentication token and redirect to the login page
+          localStorage.removeItem("user")
+        //   window.location.replace('/login');
+          window.location.replace('/login');
+        }
+        return Promise.reject(error);
+    }
+);
 
 export default instance;

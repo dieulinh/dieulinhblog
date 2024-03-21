@@ -11,8 +11,8 @@ import signupReducer from '../features/auth/signupSlice';
 import editMentorReducer from '../features/currentMentor/editMentorSlice';
 import signupMentorReducer from '../features/mentors/signupMentorSlice';
 import updateMentorReducer from '../features/mentors/updateMentorSlice';
+import exportMentorReducer from '../features/mentors/exportMentorSlice';
 import userMentorReducer from '../features/mentors/userMentorSlice';
-
 
 export const store = configureStore({
   reducer: {
@@ -24,10 +24,11 @@ export const store = configureStore({
     auth: authReducer,
     bookings: bookingsReducer,
     currentArticle: currentArticleReducer,
-    registerReducer: signupReducer,
+    register: signupReducer,
     editMentor: editMentorReducer,
     signupMentor: signupMentorReducer,
     userMentor: userMentorReducer,
-    updateMentor: updateMentorReducer
+    updateMentor: updateMentorReducer,
+    exportMentor: exportMentorReducer
   },
 });
