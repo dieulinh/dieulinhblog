@@ -4,7 +4,9 @@ import SignUp from "../components/auth/SignUp";
 import Login from "../components/auth/Login";
 import Mentors from "../components/mentors/List";
 import Courses from "../components/courses/Courses";
+import CoursesList from "../components/courses/List";
 import Course from "../components/courses/Course";
+import LearnCourse from "../components/courses/LearnCourse";
 import MentorProfile from "../components/mentors/Profile";
 import EditProfileForm from "../components/mentors/EditProfileForm";
 import BookMentor from "../components/bookings/BookMentor";
@@ -41,8 +43,9 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/signup-mentor' element={<SignupForm />} />
     <Route path='/authors/:name' element={<Author />} />
     <Route path='/articles' element={<Articles />} />
-    <Route path='/courses' element={<Courses />} />
+    <Route path='/courses' element={<CoursesList />} />
     <Route path='/courses/:courseId' element={<Course />} />
+    <Route path='/learn/:courseId' element={<LearnCourse />} />
     <Route path='/articles/:articleId' element={<Articles />} />
     <Route path='/categories' element={<Categories />}>
       <Route path=':name' element={<Category />} />

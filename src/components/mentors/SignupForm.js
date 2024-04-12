@@ -34,8 +34,8 @@ export default function SignupForm() {
 
   return (
     <div className='mentor-container'>
-      <h1 className='mentor-title'>Sign Up as Mentor</h1>
-      <div>
+      <h1 className='flex-center mentor-title'>Sign Up as Mentor</h1>
+      <div className='mentor-signup-container'>
         <label>
           first name
           <div>
@@ -134,9 +134,10 @@ export default function SignupForm() {
               value={formData.email}
               onChange={handleChange}
             />
-            <button className="primary" onClick={handleUpdateMentor}>Save</button>
+            
           </div>
         </label>
+        <div><button className="btn primary" onClick={handleUpdateMentor}>Save</button></div>
 
       </div>
     </div>

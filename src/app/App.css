@@ -13,7 +13,10 @@ h1,h2,h3,h4,h5 {
     width: 100%;
     justify-content: flex-end;
 }
-
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
 .btn-link {
     border: none;
     background-color: transparent;
@@ -34,7 +37,6 @@ h1,h2,h3,h4,h5 {
 .App {
   text-align: center;
 }
-
 .search-form {
   display: flex;
 }
@@ -74,18 +76,18 @@ form label {
 }
 .btn {
     border-radius: 4px;
-    border-color: #332211;
     text-align: center;
-    padding: 0 30px;
+    padding: 7px 14px;
     transition: .3s;
-    line-height: 35px;
-    color: #4b8d91;
-    background: #f0f8ff;
+    color: #1dc7d1;
+    background: #ccd9e6;
+    border: none;
+    height: 45px;
 }
 .user-btn {
-    border: 1px solid #373737;
-    color: #ef7f7f;
+    color: #e7a1a1;
     border-radius: 5px;
+    background-color: #eef9fd;
 }
 .article-list {
     display: flex;
@@ -193,6 +195,10 @@ form label {
     background: white;
     margin: 20px 0;
 }
+.grid-2-even {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+}
 
 .signup-mentor {
     border-radius: 5px;
@@ -204,8 +210,7 @@ form label {
     z-index: 2;
 }
 .country-dropdown,input,select  {
-border-radius: 4px;
-
+    border-radius: 4px;
     margin: 10px 5px 10px 0px;
     height: 50px;
     border: 1px solid #e0e0e0;
@@ -228,4 +233,61 @@ border-radius: 4px;
 .mentor-search-form {
     margin-bottom: 2rem;
     display: flex;
+}
+label > div {
+    display: flex;
+    column-gap: 8px;
+    width: 350px;
+}
+label > div > input{
+    width: 100%;
+}
+.righ-header-3 {
+    display: flex;
+    color: #12b2a4;
+    margin-right: 20px;
+    flex-direction: row-reverse;
+    font-weight: 400;
+}
+.course-section {
+    background-color: #8aafb2;
+    margin: 3px;
+    padding: 5px;
+    color: #eef5f1;
+    list-style: none;
+    cursor: grabbing;
+}
+.active-section {
+    background-color: #e8f4ed;
+    color: #1dc7d1;
+
+}
+.section-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 800px;
+}
+.section-content {
+    margin: 10px
+}
+.section-nav {
+    max-width: 950px;
+    min-width: 300px;
+    display: flex;
+    justify-content: flex-end;
+}
+.flex-row {
+    display: flex;
+}
+
+/* Mentor */
+.mentor-signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 800px;
+
 }
