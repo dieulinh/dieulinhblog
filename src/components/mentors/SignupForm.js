@@ -137,8 +137,7 @@ export default function SignupForm() {
             
           </div>
         </label>
-        <div><button className="btn primary" onClick={handleUpdateMentor}>Save</button></div>
-
+        <div className='flex'><button className="btn primary" onClick={handleUpdateMentor}>Save</button></div>
       </div>
     </div>
   )

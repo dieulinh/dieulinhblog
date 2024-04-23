@@ -35,14 +35,12 @@ export default function Courses() {
     return (<Loader />)
   }
   return (
-    <div>
-      <h3>Courses</h3>
-
+    <div className="container-center">
       <div className="mentors">
         <ul className="mentors-list">
           {courses.map(course => (
             <li key={course.id} className="mentor-item">
-              <Link to={`/courses/${course.id}`}>
+              <Link to={`/learn/${course.id}`}>
                 <div>{course.course_name}</div>
               </Link>
               <div>

@@ -42,10 +42,8 @@ export default function Articles() {
     return (<Loader />)
   }
   return (
-    <div>
-      <h3>Articles</h3>
-
-      <div>
+    <div className="container-center">
+      <div className="article-list-container">
         {selectedArticle && (<Article article={selectedArticle} />)}
         <section>
           <div className="article-list">

@@ -7,6 +7,11 @@ h1,h2,h3,h4,h5 {
     color: #24a599;
     font-weight: 100;
 }
+input[type="text"]:disabled,button:disabled {
+    background: #bfb7b7;
+    cursor: not-allowed;
+    color: #d7dfe7;
+  }
 
 .pull-left {
     display: flex;
@@ -70,6 +75,11 @@ a:hover {
   color: #abd373;
 }
 
+/* Course */
+#submit {
+    border: none;
+    background: transparent;
+}
 form label {
   padding: 0.5rem 0;
   font-size: 14px;
@@ -83,6 +93,8 @@ form label {
     background: #ccd9e6;
     border: none;
     height: 45px;
+    cursor: pointer;
+    min-width: 70px;
 }
 .user-btn {
     color: #e7a1a1;
@@ -191,6 +203,11 @@ form label {
     justify-content: space-between;
     height: 100%;
 }
+/* articles */
+.article-list-container {
+    display: grid;
+    grid-template-columns: 7fr 4fr;
+}
 .mentor-register {
     background: white;
     margin: 20px 0;
@@ -209,11 +226,12 @@ form label {
     line-height: 50px;
     z-index: 2;
 }
-.country-dropdown,input,select  {
+input,select  {
     border-radius: 4px;
     margin: 10px 5px 10px 0px;
     height: 50px;
     border: 1px solid #e0e0e0;
+    padding: 5px
 }
 .country-dropdown {
     padding: 0.5rem;
@@ -250,9 +268,10 @@ label > div > input{
     font-weight: 400;
 }
 .course-section {
-    background-color: #8aafb2;
-    margin: 3px;
-    padding: 5px;
+    background-color: #7fc3c9;
+    margin: 6px;
+    padding: 4px;
+    border-radius: 5px;
     color: #eef5f1;
     list-style: none;
     cursor: grabbing;
@@ -272,7 +291,7 @@ label > div > input{
     margin: 10px
 }
 .section-nav {
-    max-width: 950px;
+    width: 800px;
     min-width: 300px;
     display: flex;
     justify-content: flex-end;
@@ -280,7 +299,9 @@ label > div > input{
 .flex-row {
     display: flex;
 }
-
+section img {
+    max-width: 100%;
+}
 /* Mentor */
 .mentor-signup-container {
     display: flex;
@@ -290,4 +311,33 @@ label > div > input{
     margin: 0 auto;
     max-width: 800px;
 
+}
+.container-center {
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    margin: auto;
+}
+.article-container {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+
+}
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: auto;
+    max-width: 800px;
+}
+.article-list a {
+    color: #1e63be;
+    border-bottom: #dcedeb 1px solid;
+}
+
+.article-list  a:nth-child(odd) {
+    background: #f9f9f9;
+}
+.article-list a:hover {
+    color: #113461;
+    background-color: #14b32a;
 }

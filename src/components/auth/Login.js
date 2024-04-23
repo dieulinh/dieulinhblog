@@ -62,7 +62,7 @@ export default function Login() {
             
           </label>
         </div>
-        <button type="submit" className="primary" onClick={handleSubmit}>
+        <button type="submit" className="btn primary" onClick={handleSubmit}>
           Log In
         </button>
         <Link to={'/sign-up'}>Sign Up</Link>

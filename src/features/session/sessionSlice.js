@@ -12,6 +12,7 @@ export const sessionSlice = createSlice({
   name: 'session',
   initialState: {
     user: null,
+    mentor: null,
     isLoggedIn: false
   },
   reducers: {

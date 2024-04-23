@@ -45,6 +45,7 @@ function MentorSearchForm() {
             defaultOptionLabel="Any Country"
             value={country}
             valueType='short'
+            id="country"
             onChange={(val) => handleCountryChange(val)} />
         </div>
 

@@ -13,7 +13,7 @@ import {
 import { Link, useParams } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext'
 import { Parser } from "html-to-react";
-import CheckoutForm from './CheckoutForm.js';
+import CheckoutForm from './CheckoutForm';
 import axios from  '../../utils/axiosConfig';
 
 // mentor search initialState
@@ -95,13 +95,11 @@ export default function Course () {
           {Parser().parse(description)}
         </div>
         <div className="course-action">
-          <div>{price}</div>
-          <button onClick={handleCheckout}>{ signedCourse ? 'Start learning' :  'Pay' }</button>
+          <div>$ {price}</div>
+          <button onClick={handleCheckout} className='btn btn-primary'>{ signedCourse ? 'Start learning' :  'Enroll now' }</button>
         </div>
 
       </div>
-
-     
 
     </div>
   )

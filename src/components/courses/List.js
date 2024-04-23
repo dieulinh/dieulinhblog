@@ -5,6 +5,7 @@ import { hasError, selectCourses, loadCourses, isLoadingCourses } from "../../fe
 import { Link, useLocation } from "react-router-dom";
 
 import Loader from "../Loader";
+import './List.css';
 
 export default function Courses() {
   const dispatch = useDispatch();
@@ -27,9 +28,7 @@ export default function Courses() {
     return (<Loader />)
   }
   return (
-    <div>
-      <h3>Courses</h3>
-
+    <div className="container-center">
       <div className="mentors">
         <ul className="mentors-list">
           {courses.map(course => (
