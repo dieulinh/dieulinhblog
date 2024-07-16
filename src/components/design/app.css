@@ -1,0 +1,15 @@
+.app-toolbar {
+  display: flex;
+  flex-direction: column;
+}
+.app-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 7fr;
+  min-width: 1048px;
+}
+.learn-box {
+  display: grid;
+  grid-column-start: 3 ;
+  justify-content: center;
+  width: 100%;
+}
