@@ -18,7 +18,7 @@ import Categories from "../components/articles/Categories";
 import Category from "../components/articles/Category";
 import Author from "../components/articles/Author";
 import Profile from "../components/Profile";
-
+import DesignApp from "../components/design/DesignApp";
 import EditMentorForm from "../components/mentors/EditForm";
 
 import SignupForm from "../components/mentors/SignupForm";
@@ -35,6 +35,7 @@ import ScheduleLesson from "../components/mentors/ScheduleLesson";
 import SendMessage from "../components/mentors/SendMessage";
 import SuccessPayment from "../components/courses/SuccessPayment";
 import Mycourses from "../features/courses/mycourses";
+import CreatePost from "../components/articles/CreatePost";
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Root />}>
@@ -63,9 +64,10 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/mentors/:mentorId/message' element={<SendMessage />} />
     <Route path='/mycourses' element={<Courses />}></Route>
     <Route path='/profile1' element={<Profile />}></Route>
-    <Route path='/signup_success/:courseId' element={<SuccessPayment />}>
-    </Route>
+    <Route path='/signup_success/:courseId' element={<SuccessPayment />} />
+    <Route path='/app/design' element={<DesignApp />} />
     <Route path='/sign-up' element={<SignUp />} />
+    <Route path='/create_post' element={<CreatePost />} />
    
   </Route>)
 );

@@ -28,15 +28,17 @@ export default function Articles() {
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     dispatch(loadArticles(queryParams));
-  }, [dispatch, location]);
-
-  useEffect(() => {
     if (!selectedArticleId) return;
-
-    scrollUp()
     dispatch(loadCurrentArticle(selectedArticleId));
+  }, [dispatch, selectedArticleId]);
 
-  }, [selectedArticleId]);
+  // useEffect(() => {
+  //   if (!selectedArticleId) return;
+
+  //   scrollUp()
+  //   dispatch(loadCurrentArticle(selectedArticleId));
+
+  // }, [selectedArticleId]);
 
   if (isLoading) {
     return (<Loader />)

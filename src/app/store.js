@@ -13,6 +13,8 @@ import signupMentorReducer from '../features/mentors/signupMentorSlice';
 import updateMentorReducer from '../features/mentors/updateMentorSlice';
 import exportMentorReducer from '../features/mentors/exportMentorSlice';
 import userMentorReducer from '../features/mentors/userMentorSlice';
+import vocabsReducer from '../features/learns/vocabSlice';
+import newPostReducer from '../features/articles/newPostSlice';
 
 export const store = configureStore({
   reducer: {
@@ -29,6 +31,8 @@ export const store = configureStore({
     signupMentor: signupMentorReducer,
     userMentor: userMentorReducer,
     updateMentor: updateMentorReducer,
-    exportMentor: exportMentorReducer
+    exportMentor: exportMentorReducer,
+    vocabs: vocabsReducer,
+    newPost: newPostReducer
   },
 });
