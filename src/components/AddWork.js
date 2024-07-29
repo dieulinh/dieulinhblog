@@ -4,8 +4,8 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import axios from '../utils/axiosConfig';
 import { Link, useParams, useNavigate } from "react-router-dom";
 
+
 export default function AddWork() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [message, setMessage] = useState('');

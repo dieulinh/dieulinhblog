@@ -3,7 +3,6 @@ import axios from '../../utils/axiosConfig';
 export const bookMentor = createAsyncThunk(
   'mentors/mentor/book',
   async (bookingParams) => {
-
     const data = await axios.post(`/api/mentors/${bookingParams.mentorId}/book`, bookingParams);
     return data.data;
   }

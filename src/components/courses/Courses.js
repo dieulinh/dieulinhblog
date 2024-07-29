@@ -22,13 +22,12 @@ export default function Courses() {
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
-    console.log(currentUser)
-    if (!currentUser) return;
-    queryParams.append('user_id', currentUser.user_id); 
-    console.log(queryParams)
+    if (currentUser) {
+      queryParams.append('user_id', currentUser.user_id); 
+    }
     
     dispatch(loadMyCourses(queryParams));
-  }, [dispatch,currentUser]);
+  }, [dispatch, currentUser]);
 
 
   if (isLoading) {

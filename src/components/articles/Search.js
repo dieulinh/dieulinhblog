@@ -28,7 +28,7 @@ const Search = () => {
           id="searchTerm"
           ref={searchInputRef}
         />
-        <button type="submit">Search</button>
+        <button type="submit" className='btn btn-primary'>Search</button>
       </div>
     </form>
   );

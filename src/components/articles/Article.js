@@ -10,7 +10,6 @@ export default function Article (props) {
   return (
     <div className='article-container'>
       <h1 className='article-title'>{article.title}</h1>
-
       <div>
         {Parser().parse(article.content)}
 

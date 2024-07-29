@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState} from 'react';
+import React, {useEffect, useContext, useState, useCallback} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { hasError, isLoadingCurrentMentor, loadMentor, selectCurrentMentor } from '../../features/mentors/mentor';
 import Loader from '../Loader.js';
@@ -39,7 +39,10 @@ export default function BookMentor () {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
   const [slot, setSlot] = useState('');
-
+  const calculateSlot = useCallback(() => {
+    dispatch(bookMentor({mentorId, slot, date}));
+  },[date, slot]);
+  
   const hours = Array.from({ length: 24 }, (_, index) => index); // Create an array of numbers from 0 to 23
   useEffect(() => {
     dispatch(loadMentor(mentorId));
@@ -50,6 +53,7 @@ export default function BookMentor () {
     if(!currentUser){
       navigate('/login')
     }
+    console.log('event', event.target.value)
     setSlot(event.target.value);
   };
   useEffect(() => {
@@ -58,6 +62,15 @@ export default function BookMentor () {
   }, [date]);
   const handleBookEvent = (event) => {
     event.preventDefault()
+    console.log('event', slot)
+    dispatch(bookMentor({mentorId, slot, date}));
+    closeModal()
+  }
+  const handleBookingSlot = (slot) => {
+    console.log('slot', slot)
+    // console.log('event', event.target.innerText)
+    // const slot = parseInt(event.target.innerText.split(':')[0]);
+    // setSlot(slot);
     dispatch(bookMentor({mentorId, slot, date}));
     closeModal()
   }
@@ -95,7 +108,7 @@ export default function BookMentor () {
     return <div className="modal"><h2>This is a popup {date&&date.dateStr} </h2></div>
   }
   return (
-    <div className='mentor-container'>
+    <div className='calendar-container'>
       <FullCalendar
         timeZone={"local"}
         plugins={[ dayGridPlugin, interactionPlugin]}
@@ -117,15 +130,15 @@ export default function BookMentor () {
 
           <div>{date&&date.dateStr}</div>
           <form>
-            <label htmlFor="hour-select">Select an Hour:</label>
-            <select id="hour-select" value={slot} onChange={handleHourChange}>
-              <option value="">Select</option>
-              {hours.map((hour) => (
-                <option key={hour} value={hour}>
-                  {hour.toString().padStart(2, '0')}:00
-                </option>
+            <h2>Book a slot</h2>
+            <div className='time-slot'>
+            {hours.map((hour) => (
+                <div className='hour-slot'>
+                  <span> {hour.toString().padStart(2, '0')}:00</span>
+                  <button className="btn btn-book" onClick={() => handleBookingSlot(hour)}>Book</button>
+                </div>
               ))}
-            </select>
+            </div>
             {slot !== '' && (
               <p>You selected: {slot.toString().padStart(2, '0')}:00</p>
             )}

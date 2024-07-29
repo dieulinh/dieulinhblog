@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
+import List from './List';
 
 function Landing() {
+  const [number, setNumber] = useState(0);
+  const [dark, setDark] = useState(false);
+  const [renderCount, setRenderCount] = useState(0);
+  const theme = {
+    backgroundColor: dark ? '#333' : '#FFF',
+    color: dark ? '#FFF' : '#333'
+  }
+  useEffect(() => {
+    setRenderCount(prevRenderCount => prevRenderCount + 1)
+  },[])
+  const getItems = useCallback(() => ([number, number + 1, number + 2]),[number])
+  
   return (
-    <>
+    <div style={theme}>
         <h1>Learn Ctrl</h1>
         <h2></h2>
         <p>
@@ -16,7 +29,13 @@ function Landing() {
             - Check mentors to connect with industry professionals.
         </p>
         <small>Remember to pay attention, hack your learning, and choose topics wisely.</small>
-    </>
+        <input type="number" onChange={e => setNumber(e.target.value)} />
+        <div>{number}</div>
+        <List getItems={getItems} />
+        <button onClick={(number) => setDark(predark => !predark)}>Increment</button>
+        <div>{dark}</div>
+        <div>Render Count: {renderCount}</div>
+    </div>
   )
 }
 

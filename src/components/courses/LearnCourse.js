@@ -43,6 +43,21 @@ export default function Course () {
     
         return
       }
+      axios.post("/api/learning_progresses/continue", {
+        course_id: courseId,
+        student_id: currentUser.user_id,
+        completed: 0,
+        post_id: nextIndex
+      })
+      .then((response) => {
+        console.log(response.data)
+        
+        // Handle the response
+      })
+      .catch((error) => {
+        // Handle the error
+        console.log(error.response)
+      });
       setActiveSection(content[nextIndex])
     
     }
@@ -52,7 +67,7 @@ export default function Course () {
     console.log('switching to post', setActiveSection(post))
   }
   const handleStart = async () => {
-    console.log('start learning')
+    
     if(!currentUser) {
       navigate('/login')
     }
@@ -131,6 +146,9 @@ export default function Course () {
               <section className='section-content-container'>
                 {activeSection && Parser().parse(activeSection.content)}
               </section>
+            </div>
+            <div className='note-area'>
+              some notes
             </div>
 
           </div>
