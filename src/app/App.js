@@ -37,6 +37,7 @@ import SuccessPayment from "../components/courses/SuccessPayment";
 import Mycourses from "../features/courses/mycourses";
 import CreatePost from "../components/articles/CreatePost";
 import Plants from "../components/gardening/Plants";
+import Recipes from "../components/recipes/Recipes";
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Root />}>
@@ -70,6 +71,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/sign-up' element={<SignUp />} />
     <Route path='/create_post' element={<CreatePost />} />
     <Route path='/plants' element={<Plants />} />
+    <Route path='/recipes' element={<Recipes />} />
   </Route>)
 );
 

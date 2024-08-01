@@ -15,9 +15,11 @@ import exportMentorReducer from '../features/mentors/exportMentorSlice';
 import userMentorReducer from '../features/mentors/userMentorSlice';
 import vocabsReducer from '../features/learns/vocabSlice';
 import newPostReducer from '../features/articles/newPostSlice';
-
+// import { createRecipe } from '../features/recipes/createRecipeSlice';
+import recipesReducer from '../features/recipes/recipesSlice';
 export const store = configureStore({
   reducer: {
+    recipes: recipesReducer,
     articles: articlesReducer,
     mentors: mentorsReducer,
     courses: coursesReducer,
